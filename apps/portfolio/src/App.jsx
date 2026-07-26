@@ -183,14 +183,6 @@ function App() {
   return (
     <div className="app-shell" style={{ '--accent-rgb': scene.accent }}>
       <header className="title-bar">
-        <ThreeHeroBackground
-          className="hero-scene"
-          particleColor={scene.particleColor}
-          haloColor={scene.haloColor}
-          secondaryHaloColor={scene.secondaryHaloColor}
-          density={scene.density * 1.18}
-          speed={scene.speed * 1.35}
-        />
         <div className="title-copy">
           <p className="eyebrow">Russell Watson</p>
           <p className="subtitle">{sections[0].body}</p>

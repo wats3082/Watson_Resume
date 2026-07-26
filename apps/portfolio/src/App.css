@@ -17,12 +17,6 @@
   padding: 34px 48px 24px;
 }
 
-.hero-scene {
-  position: absolute;
-  inset: 0;
-  opacity: 0.55;
-}
-
 .title-copy {
   position: relative;
   z-index: 2;
