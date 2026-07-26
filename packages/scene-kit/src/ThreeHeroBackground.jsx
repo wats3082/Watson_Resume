@@ -16,6 +16,7 @@ export function ThreeHeroBackground({
   fieldDepth = 24,
   primaryHaloPosition = [8, 0.6, -2],
   secondaryHaloPosition = [-6.5, -1.4, -4],
+  seed = null,
 }) {
   const hostRef = useRef(null)
 
@@ -41,14 +42,23 @@ export function ThreeHeroBackground({
     const halfWidth = fieldWidth * 0.5
     const halfHeight = fieldHeight * 0.5
     const halfDepth = fieldDepth * 0.5
+    const random = (() => {
+      if (typeof seed !== 'number') return Math.random
+      let state = (seed >>> 0) || 1
+      return () => {
+        state = (state * 1664525 + 1013904223) >>> 0
+        return state / 4294967296
+      }
+    })()
+
     for (let i = 0; i < particleCount; i += 1) {
-      positions[i * 3] = (Math.random() - 0.5) * fieldWidth
-      positions[i * 3 + 1] = (Math.random() - 0.5) * fieldHeight
-      positions[i * 3 + 2] = (Math.random() - 0.5) * fieldDepth
-      velocities[i * 3] = (Math.random() - 0.5) * 0.9
-      velocities[i * 3 + 1] = (Math.random() - 0.5) * 0.7
-      velocities[i * 3 + 2] = (Math.random() - 0.5) * 0.5
-      phases[i] = Math.random() * Math.PI * 2
+      positions[i * 3] = (random() - 0.5) * fieldWidth
+      positions[i * 3 + 1] = (random() - 0.5) * fieldHeight
+      positions[i * 3 + 2] = (random() - 0.5) * fieldDepth
+      velocities[i * 3] = (random() - 0.5) * 0.9
+      velocities[i * 3 + 1] = (random() - 0.5) * 0.7
+      velocities[i * 3 + 2] = (random() - 0.5) * 0.5
+      phases[i] = random() * Math.PI * 2
     }
 
     const pointsGeometry = new THREE.BufferGeometry()
@@ -185,6 +195,7 @@ export function ThreeHeroBackground({
     secondaryHaloOpacity,
     secondaryHaloPosition,
     speed,
+    seed,
   ])
 
   return <div className={className} ref={hostRef} />
