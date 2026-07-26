@@ -131,15 +131,66 @@ const projects = [
   },
 ]
 
+const sceneBySection = {
+  overview: {
+    particleColor: '#94a3b8',
+    haloColor: '#64748b',
+    secondaryHaloColor: '#cbd5e1',
+    density: 1,
+    speed: 1,
+    accent: '148,163,184',
+  },
+  experience: {
+    particleColor: '#93c5fd',
+    haloColor: '#3b82f6',
+    secondaryHaloColor: '#bfdbfe',
+    density: 1.12,
+    speed: 1.08,
+    accent: '96,165,250',
+  },
+  credentials: {
+    particleColor: '#a5b4fc',
+    haloColor: '#6366f1',
+    secondaryHaloColor: '#c7d2fe',
+    density: 0.94,
+    speed: 0.9,
+    accent: '129,140,248',
+  },
+  projects: {
+    particleColor: '#5eead4',
+    haloColor: '#14b8a6',
+    secondaryHaloColor: '#99f6e4',
+    density: 1.22,
+    speed: 1.18,
+    accent: '45,212,191',
+  },
+  contact: {
+    particleColor: '#f9a8d4',
+    haloColor: '#ec4899',
+    secondaryHaloColor: '#fbcfe8',
+    density: 0.9,
+    speed: 0.85,
+    accent: '244,114,182',
+  },
+}
+
 function App() {
   const [active, setActive] = useState('overview')
   const activeSection = sections.find((s) => s.id === active) || sections[0]
   const isLongSection = active === 'experience' || active === 'projects'
+  const scene = sceneBySection[active] || sceneBySection.overview
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" style={{ '--accent-rgb': scene.accent }}>
       <header className="title-bar">
-        <ThreeHeroBackground className="hero-scene" particleColor="#94a3b8" haloColor="#64748b" />
+        <ThreeHeroBackground
+          className="hero-scene"
+          particleColor={scene.particleColor}
+          haloColor={scene.haloColor}
+          secondaryHaloColor={scene.secondaryHaloColor}
+          density={scene.density}
+          speed={scene.speed}
+        />
         <div className="title-copy">
           <p className="eyebrow">Russell Watson</p>
           <h1>Security Software & Systems Engineer</h1>

@@ -1,7 +1,17 @@
 import { useEffect, useRef } from 'react'
 import * as THREE from 'three'
 
-export function ThreeHeroBackground({ className = '', particleColor = '#8b5cf6', haloColor = '#3b82f6' }) {
+export function ThreeHeroBackground({
+  className = '',
+  particleColor = '#8b5cf6',
+  haloColor = '#3b82f6',
+  secondaryHaloColor = '#c4b5fd',
+  density = 1,
+  speed = 1,
+  fieldWidth = 36,
+  fieldHeight = 16,
+  fieldDepth = 24,
+}) {
   const hostRef = useRef(null)
 
   useEffect(() => {
@@ -18,12 +28,13 @@ export function ThreeHeroBackground({ className = '', particleColor = '#8b5cf6',
     host.appendChild(renderer.domElement)
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const particleCount = reduceMotion ? 200 : 500
+    const baseCount = reduceMotion ? 200 : 500
+    const particleCount = Math.max(120, Math.floor(baseCount * density))
     const positions = new Float32Array(particleCount * 3)
     for (let i = 0; i < particleCount; i += 1) {
-      positions[i * 3] = (Math.random() - 0.5) * 36
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 16
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 24
+      positions[i * 3] = (Math.random() - 0.5) * fieldWidth
+      positions[i * 3 + 1] = (Math.random() - 0.5) * fieldHeight
+      positions[i * 3 + 2] = (Math.random() - 0.5) * fieldDepth
     }
 
     const pointsGeometry = new THREE.BufferGeometry()
@@ -50,6 +61,18 @@ export function ThreeHeroBackground({ className = '', particleColor = '#8b5cf6',
     halo.position.set(8, 0.6, -2)
     scene.add(halo)
 
+    const accentHalo = new THREE.Mesh(
+      new THREE.SphereGeometry(2.4, 28, 28),
+      new THREE.MeshBasicMaterial({
+        color: secondaryHaloColor,
+        transparent: true,
+        opacity: 0.14,
+        wireframe: true,
+      }),
+    )
+    accentHalo.position.set(-6.5, -1.4, -4)
+    scene.add(accentHalo)
+
     const resize = () => {
       const width = host.clientWidth || 1
       const height = host.clientHeight || 1
@@ -73,11 +96,14 @@ export function ThreeHeroBackground({ className = '', particleColor = '#8b5cf6',
       if (!isVisible) return
       const dt = Math.min(clock.getDelta(), 0.05)
       frame += dt * 60
-      const rotationScale = reduceMotion ? 0.35 : 1
+      const rotationScale = (reduceMotion ? 0.35 : 1) * speed
       points.rotation.y += dt * 0.054 * rotationScale
       points.rotation.x = Math.sin(frame * 0.003) * (reduceMotion ? 0.03 : 0.08)
       halo.rotation.y -= dt * 0.12 * rotationScale
       halo.rotation.z += dt * 0.06 * rotationScale
+      accentHalo.rotation.y += dt * 0.07 * rotationScale
+      accentHalo.rotation.x -= dt * 0.04 * rotationScale
+      accentHalo.position.y = -1.4 + Math.sin(frame * 0.01) * 0.35
       renderer.render(scene, camera)
     }
     renderer.setAnimationLoop(animate)
@@ -91,10 +117,12 @@ export function ThreeHeroBackground({ className = '', particleColor = '#8b5cf6',
       pointsMaterial.dispose()
       halo.geometry.dispose()
       halo.material.dispose()
+      accentHalo.geometry.dispose()
+      accentHalo.material.dispose()
       renderer.dispose()
       if (renderer.domElement.parentNode === host) host.removeChild(renderer.domElement)
     }
-  }, [haloColor, particleColor])
+  }, [density, fieldDepth, fieldHeight, fieldWidth, haloColor, particleColor, secondaryHaloColor, speed])
 
   return <div className={className} ref={hostRef} />
 }
