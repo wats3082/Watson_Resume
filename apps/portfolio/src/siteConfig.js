@@ -125,12 +125,12 @@ export const siteConfig = {
     {
       name: 'Web Scraper Automation',
       description: 'Automated data collection from Wikipedia tables into Excel-ready output for analytics and reporting.',
-      url: 'https://wats3082.github.io/web-scraper-automation/',
+      url: 'https://wats3082.github.io/Project-Web-Scraper/',
     },
     {
       name: 'Movie Review Database',
       description: 'Searchable MongoDB-backed review system for dynamic content management and user interaction.',
-      url: 'https://wats3082.github.io/movie-review-database/',
+      url: 'https://wats3082.github.io/Project-Movie-Reviews-Database/',
     },
     {
       name: 'Cybersecurity React Quiz',
