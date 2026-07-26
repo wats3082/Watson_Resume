@@ -156,24 +156,6 @@
   color: #e2e8f0;
 }
 
-.section-actions {
-  margin-top: 12px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.section-btn {
-  border: 1px solid rgba(var(--accent-rgb), 0.5);
-  background: #0f172a;
-  color: #dbe3ef;
-  border-radius: 999px;
-  padding: 8px 13px;
-  text-decoration: none;
-  font-size: 0.86rem;
-  cursor: pointer;
-}
-
 .content-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(260px, 1fr));
@@ -281,7 +263,6 @@
 }
 
 .menu-item:hover,
-.section-btn:hover,
 .project-card:hover {
   filter: brightness(1.06);
 }

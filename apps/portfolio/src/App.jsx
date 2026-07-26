@@ -215,19 +215,6 @@ function App() {
         <article className="content-card spotlight">
           <h2>{activeSection.title}</h2>
           <p>{activeSection.body}</p>
-          <div className="section-actions">
-            {activeSection.actions?.map((action) =>
-              action.type === 'section' ? (
-                <button key={action.label} type="button" className="section-btn" onClick={() => setActive(action.value)}>
-                  {action.label}
-                </button>
-              ) : (
-                <a key={action.label} className="section-btn section-link" href={action.value} target="_blank" rel="noreferrer">
-                  {action.label}
-                </a>
-              ),
-            )}
-          </div>
         </article>
 
         {active === 'overview' && (
