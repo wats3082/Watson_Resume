@@ -207,15 +207,13 @@ function App() {
           className="top-stars"
           particleColor={scene.particleColor}
           particleSize={0.028}
-          primaryHaloOpacity={0.12}
-          secondaryHaloOpacity={0.16}
+          primaryHaloOpacity={0}
+          secondaryHaloOpacity={0}
           density={0.75}
           speed={0.78}
           fieldWidth={90}
           fieldHeight={16}
           fieldDepth={24}
-          primaryHaloPosition={[34, 0.8, -2.5]}
-          secondaryHaloPosition={[-34, -0.8, -4.8]}
         />
         <div className="title-copy">
           <p className="eyebrow">Russell Watson</p>
