@@ -207,20 +207,20 @@ function App() {
           <p className="eyebrow">Russell Watson</p>
           <p className="subtitle">{sections[0].body}</p>
         </div>
-      </header>
 
-      <nav className="menu-panel" aria-label="Profile sections">
-        {sections.map((section) => (
-          <button
-            key={section.id}
-            type="button"
-            className={`menu-item ${active === section.id ? 'active' : ''}`}
-            onClick={() => setActive(section.id)}
-          >
-            {section.title}
-          </button>
-        ))}
-      </nav>
+        <nav className="menu-panel" aria-label="Profile sections">
+          {sections.map((section) => (
+            <button
+              key={section.id}
+              type="button"
+              className={`menu-item ${active === section.id ? 'active' : ''}`}
+              onClick={() => setActive(section.id)}
+            >
+              {section.title}
+            </button>
+          ))}
+        </nav>
+      </header>
 
       <main className={`main-panel ${isLongSection ? 'main-scroll' : 'main-fit'}`}>
         <ThreeHeroBackground
