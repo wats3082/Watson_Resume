@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ThreeCardTilt, ThreeCursorGlow, ThreeHeroBackground } from '@watson/scene-kit'
+import { ThreeCardTilt, ThreeHeroBackground } from '@watson/scene-kit'
 import './App.css'
 
 const sections = [
@@ -137,20 +137,12 @@ function App() {
 
   return (
     <div className="app-shell">
-      <ThreeCursorGlow color="148,163,184" />
       <header className="title-bar">
         <ThreeHeroBackground className="hero-scene" particleColor="#94a3b8" haloColor="#64748b" />
         <div className="title-copy">
           <p className="eyebrow">Russell Watson</p>
           <h1>Security Software & Systems Engineer</h1>
           <p className="subtitle">{sections[0].body}</p>
-        </div>
-        <div className="profile-wrap">
-          <img
-            className="profile-image"
-            src={`${import.meta.env.BASE_URL}profile-screenshot.jpg`}
-            alt="Russell Watson profile"
-          />
         </div>
       </header>
 
@@ -266,6 +258,13 @@ function App() {
         {active === 'contact' && (
           <section className="content-grid">
             <article className="content-card">
+              <div className="contact-profile-wrap">
+                <img
+                  className="contact-profile-image"
+                  src={`${import.meta.env.BASE_URL}profile-screenshot.jpg`}
+                  alt="Russell Watson profile"
+                />
+              </div>
               <h3>Email</h3>
               <p>
                 <a href="mailto:russellalanwatson@gmail.com">russellalanwatson@gmail.com</a>
