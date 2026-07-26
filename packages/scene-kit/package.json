@@ -1,0 +1,16 @@
+{
+  "name": "@watson/scene-kit",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "three": "^0.179.1"
+  }
+}

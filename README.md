@@ -1,44 +1,26 @@
-# Portfolio 2025 - Russell Watson
+# Watson Resume
 
-Personal portfolio website showcasing security architecture, AI/cloud automation, and professional experience.
+Monorepo beta template for your portfolio and future project sites.
 
-## Overview
+## Layout
 
-This repository contains a portfolio website built with static HTML, CSS, and JavaScript. It includes a resume section, project showcase, and contact details.
+- `apps/portfolio` — deployable React + Vite website
+- `packages/scene-kit` — reusable 3D UI layer (`@watson/scene-kit`)
 
-## Live Demo
+## Scene kit components
 
-https://wats3082.github.io/Portfolio-2025-RW/
+- `ThreeHeroBackground` — animated Three.js hero canvas
+- `ThreeCardTilt` — interactive 3D card tilt wrapper
+- `ThreeCursorGlow` — modern cursor-follow glow layer
 
-## Structure
+## Commands
 
-```
-Portfolio-2025-RW/
-  index.html
-  index.txt
-  README.md
-  .gitignore
-  assets/
-    css/
-    js/
-    images/
-  aws-backend/       # separate project folder, not part of the portfolio site
-  website-demo-image/
+```bash
+npm install
+npm run dev
+npm run build
 ```
 
-## Notes
+## Deploy
 
-- This repository is a standalone portfolio site.
-- The `README.md` and `.gitignore` files should keep the portfolio repo focused on the website only.
-- The `aws-backend/` folder is a separate project and can be moved to its own repository.
-
-## Cleanup recommendations
-
-- Remove unrelated folders such as `aws-backend/` from this repo if you want a clean portfolio-only repository.
-- Keep all content assets inside `assets/` or `website-demo-image/`.
-
-## GitHub Pages
-
-This repository is configured to be published as a GitHub Pages site from the `main` branch.
-
-
+GitHub Actions deploys `apps/portfolio/dist` to `gh-pages` from `main`.
