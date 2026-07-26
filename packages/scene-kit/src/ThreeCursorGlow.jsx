@@ -7,12 +7,36 @@ export function ThreeCursorGlow({ color = '99,102,241' }) {
     const element = glowRef.current
     if (!element) return undefined
 
-    const onMove = (event) => {
-      element.style.transform = `translate(${event.clientX - 120}px, ${event.clientY - 120}px)`
+    const supportsPointer = window.matchMedia('(pointer: fine)').matches
+    if (!supportsPointer) {
+      element.style.display = 'none'
+      return undefined
     }
 
+    let animationId = 0
+    let currentX = 0
+    let currentY = 0
+    let targetX = 0
+    let targetY = 0
+
+    const tick = () => {
+      currentX += (targetX - currentX) * 0.24
+      currentY += (targetY - currentY) * 0.24
+      element.style.transform = `translate(${currentX}px, ${currentY}px)`
+      animationId = window.requestAnimationFrame(tick)
+    }
+
+    const onMove = (event) => {
+      targetX = event.clientX - 120
+      targetY = event.clientY - 120
+    }
+
+    animationId = window.requestAnimationFrame(tick)
     window.addEventListener('pointermove', onMove)
-    return () => window.removeEventListener('pointermove', onMove)
+    return () => {
+      window.cancelAnimationFrame(animationId)
+      window.removeEventListener('pointermove', onMove)
+    }
   }, [])
 
   return (

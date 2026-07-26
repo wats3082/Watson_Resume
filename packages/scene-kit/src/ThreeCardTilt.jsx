@@ -15,12 +15,18 @@ export function ThreeCardTilt({ children, maxTilt = 10, className = '' }) {
       onMouseLeave: (event) => {
         event.currentTarget.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)'
       },
+      onFocus: (event) => {
+        event.currentTarget.style.transform = 'perspective(900px) rotateX(2deg) rotateY(-2deg)'
+      },
+      onBlur: (event) => {
+        event.currentTarget.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)'
+      },
     }),
     [maxTilt],
   )
 
   return (
-    <div className={className} {...handlers}>
+    <div className={className} tabIndex={0} {...handlers}>
       {children}
     </div>
   )
