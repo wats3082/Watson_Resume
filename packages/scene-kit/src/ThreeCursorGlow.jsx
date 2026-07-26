@@ -7,17 +7,18 @@ export function ThreeCursorGlow({ color = '99,102,241' }) {
     const element = glowRef.current
     if (!element) return undefined
 
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const supportsPointer = window.matchMedia('(pointer: fine)').matches
-    if (!supportsPointer) {
+    if (!supportsPointer || reduceMotion) {
       element.style.display = 'none'
       return undefined
     }
 
     let animationId = 0
-    let currentX = 0
-    let currentY = 0
-    let targetX = 0
-    let targetY = 0
+    let currentX = window.innerWidth * 0.5 - 120
+    let currentY = window.innerHeight * 0.5 - 120
+    let targetX = currentX
+    let targetY = currentY
 
     const tick = () => {
       currentX += (targetX - currentX) * 0.24

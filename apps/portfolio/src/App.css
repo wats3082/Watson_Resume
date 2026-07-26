@@ -11,7 +11,7 @@
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid #1d2430;
-  padding: 70px 48px 52px;
+  padding: 56px 48px 40px;
 }
 
 .hero-scene {
@@ -104,15 +104,8 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 26px 42px 44px;
+  padding: 20px 42px 30px;
   min-height: 0;
-}
-
-.main-panel.section-fit {
-  overflow: hidden;
-}
-
-.main-panel.section-scroll {
   overflow-y: auto;
 }
 

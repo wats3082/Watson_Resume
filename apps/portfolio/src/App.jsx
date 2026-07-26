@@ -134,8 +134,6 @@ const projects = [
 function App() {
   const [active, setActive] = useState('overview')
   const activeSection = sections.find((s) => s.id === active) || sections[0]
-  const scrollSections = new Set(['experience', 'projects'])
-  const sectionNeedsScroll = scrollSections.has(active)
 
   return (
     <div className="app-shell">
@@ -169,7 +167,7 @@ function App() {
         ))}
       </nav>
 
-      <main className={`main-panel ${sectionNeedsScroll ? 'section-scroll' : 'section-fit'}`}>
+      <main className="main-panel">
         <article className="content-card spotlight">
           <h2>{activeSection.title}</h2>
           <p>{activeSection.body}</p>

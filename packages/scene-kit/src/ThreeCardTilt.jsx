@@ -1,9 +1,15 @@
 import { useMemo } from 'react'
 
 export function ThreeCardTilt({ children, maxTilt = 10, className = '' }) {
+  const canTilt =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(pointer: fine)').matches &&
+    !window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   const handlers = useMemo(
     () => ({
-      onMouseMove: (event) => {
+      onPointerMove: (event) => {
+        if (!canTilt) return
         const element = event.currentTarget
         const rect = element.getBoundingClientRect()
         const px = (event.clientX - rect.left) / rect.width
@@ -12,21 +18,22 @@ export function ThreeCardTilt({ children, maxTilt = 10, className = '' }) {
         const ry = (px - 0.5) * maxTilt
         element.style.transform = `perspective(900px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateZ(0)`
       },
-      onMouseLeave: (event) => {
+      onPointerLeave: (event) => {
         event.currentTarget.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)'
       },
       onFocus: (event) => {
+        if (!canTilt) return
         event.currentTarget.style.transform = 'perspective(900px) rotateX(2deg) rotateY(-2deg)'
       },
       onBlur: (event) => {
         event.currentTarget.style.transform = 'perspective(900px) rotateX(0deg) rotateY(0deg)'
       },
     }),
-    [maxTilt],
+    [canTilt, maxTilt],
   )
 
   return (
-    <div className={className} tabIndex={0} {...handlers}>
+    <div className={className} {...handlers}>
       {children}
     </div>
   )
