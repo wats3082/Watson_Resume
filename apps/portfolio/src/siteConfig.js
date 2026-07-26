@@ -129,13 +129,13 @@ export const siteConfig = {
     },
     {
       name: 'Movie Review Database',
-      description: 'Searchable MongoDB-backed review system for dynamic content management and user interaction.',
-      url: 'https://wats3082.github.io/Project-Movie-Reviews-Database/',
+      description: 'Yelp-style local discovery experience for restaurants, movies, shops, and schools.',
+      url: 'https://wats3082.github.io/Project-Yelp-Clone/',
     },
     {
-      name: 'Cybersecurity React Quiz',
+      name: 'Cybersecurity Quiz',
       description: 'Interactive cybersecurity quiz experience rebuilt in React and deployed on GitHub Pages.',
-      url: 'https://wats3082.github.io/Game-Cybersecurity_React_Quiz/',
+      url: 'https://wats3082.github.io/Project-Cybersecurity-Quiz/',
     },
     {
       name: 'Project Checkout Cart',
