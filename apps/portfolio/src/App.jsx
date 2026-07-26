@@ -134,6 +134,8 @@ const projects = [
 function App() {
   const [active, setActive] = useState('overview')
   const activeSection = sections.find((s) => s.id === active) || sections[0]
+  const scrollSections = new Set(['experience', 'projects'])
+  const sectionNeedsScroll = scrollSections.has(active)
 
   return (
     <div className="app-shell">
@@ -144,17 +146,13 @@ function App() {
           <p className="eyebrow">Russell Watson</p>
           <h1>Security Software & Systems Engineer</h1>
           <p className="subtitle">{sections[0].body}</p>
-          <div className="title-actions">
-            <button type="button" className="action-btn" onClick={() => setActive('projects')}>
-              View Portfolio
-            </button>
-            <button type="button" className="action-btn action-btn-secondary" onClick={() => setActive('experience')}>
-              Explore Experience
-            </button>
-          </div>
         </div>
         <div className="profile-wrap">
-          <img className="profile-image" src={`${import.meta.env.BASE_URL}my-avatar.png`} alt="Russell Watson profile" />
+          <img
+            className="profile-image"
+            src={`${import.meta.env.BASE_URL}profile-screenshot.jpg`}
+            alt="Russell Watson profile"
+          />
         </div>
       </header>
 
@@ -171,7 +169,7 @@ function App() {
         ))}
       </nav>
 
-      <main className="main-panel">
+      <main className={`main-panel ${sectionNeedsScroll ? 'section-scroll' : 'section-fit'}`}>
         <article className="content-card spotlight">
           <h2>{activeSection.title}</h2>
           <p>{activeSection.body}</p>
