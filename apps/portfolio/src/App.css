@@ -34,6 +34,9 @@
   max-width: 920px;
   margin: 0 auto;
   text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 2px;
 }
 
 .eyebrow {
