@@ -31,7 +31,7 @@
 .title-copy {
   position: relative;
   z-index: 2;
-  max-width: 920px;
+  max-width: 1120px;
   margin: 0 auto;
   text-align: center;
   display: grid;
@@ -58,7 +58,7 @@
 }
 .subtitle {
   margin: 10px 0 0;
-  max-width: 720px;
+  max-width: 920px;
   margin-left: auto;
   margin-right: auto;
   color: #c3cad8;
@@ -102,7 +102,7 @@
 }
 
 .main-panel {
-  max-width: 1200px;
+  max-width: 1480px;
   width: 100%;
   margin: 0 auto;
   padding: 12px 36px 20px;
@@ -250,7 +250,7 @@
 
 .project-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -370,5 +370,11 @@
   .content-grid,
   .project-list {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1320px) {
+  .project-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

@@ -148,7 +148,7 @@ h1 {
 
 .brand-copy {
   min-width: 280px;
-  max-width: 550px;
+  max-width: 760px;
   flex: 1;
 }
 
@@ -200,7 +200,7 @@ h1 {
 }
 
 .page-shell {
-  max-width: 1260px;
+  max-width: 1540px;
   margin: 0 auto;
   padding: 28px 24px 48px;
   display: flex;
@@ -524,7 +524,7 @@ h1 {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 22px;
 }
 
@@ -656,6 +656,12 @@ h1 {
   .skill-grid,
   .contact-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1280px) {
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
