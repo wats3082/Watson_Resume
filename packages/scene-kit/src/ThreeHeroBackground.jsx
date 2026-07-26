@@ -11,6 +11,8 @@ export function ThreeHeroBackground({
   fieldWidth = 36,
   fieldHeight = 16,
   fieldDepth = 24,
+  primaryHaloPosition = [8, 0.6, -2],
+  secondaryHaloPosition = [-6.5, -1.4, -4],
 }) {
   const hostRef = useRef(null)
 
@@ -70,7 +72,7 @@ export function ThreeHeroBackground({
         wireframe: true,
       }),
     )
-    halo.position.set(8, 0.6, -2)
+    halo.position.set(primaryHaloPosition[0], primaryHaloPosition[1], primaryHaloPosition[2])
     scene.add(halo)
 
     const accentHalo = new THREE.Mesh(
@@ -82,7 +84,7 @@ export function ThreeHeroBackground({
         wireframe: true,
       }),
     )
-    accentHalo.position.set(-6.5, -1.4, -4)
+    accentHalo.position.set(secondaryHaloPosition[0], secondaryHaloPosition[1], secondaryHaloPosition[2])
     scene.add(accentHalo)
 
     const resize = () => {
@@ -132,7 +134,7 @@ export function ThreeHeroBackground({
       halo.rotation.z += dt * 0.06 * rotationScale
       accentHalo.rotation.y += dt * 0.07 * rotationScale
       accentHalo.rotation.x -= dt * 0.04 * rotationScale
-      accentHalo.position.y = -1.4 + Math.sin(frame * 0.01) * 0.35
+      accentHalo.position.y = secondaryHaloPosition[1] + Math.sin(frame * 0.01) * 0.35
       renderer.render(scene, camera)
     }
     renderer.setAnimationLoop(animate)
@@ -151,7 +153,18 @@ export function ThreeHeroBackground({
       renderer.dispose()
       if (renderer.domElement.parentNode === host) host.removeChild(renderer.domElement)
     }
-  }, [density, fieldDepth, fieldHeight, fieldWidth, haloColor, particleColor, secondaryHaloColor, speed])
+  }, [
+    density,
+    fieldDepth,
+    fieldHeight,
+    fieldWidth,
+    haloColor,
+    particleColor,
+    primaryHaloPosition,
+    secondaryHaloColor,
+    secondaryHaloPosition,
+    speed,
+  ])
 
   return <div className={className} ref={hostRef} />
 }

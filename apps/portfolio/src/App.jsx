@@ -139,6 +139,10 @@ const sceneBySection = {
     density: 1,
     speed: 1,
     accent: '148,163,184',
+    mainDensity: 2.3,
+    mainSpeed: 1.45,
+    primaryHaloPosition: [18, 1.3, -3],
+    secondaryHaloPosition: [-18, -1.8, -5],
   },
   experience: {
     particleColor: '#93c5fd',
@@ -147,6 +151,10 @@ const sceneBySection = {
     density: 1.12,
     speed: 1.08,
     accent: '96,165,250',
+    mainDensity: 2.5,
+    mainSpeed: 1.55,
+    primaryHaloPosition: [19, 1.5, -3],
+    secondaryHaloPosition: [-19, -2, -5],
   },
   credentials: {
     particleColor: '#a5b4fc',
@@ -155,6 +163,10 @@ const sceneBySection = {
     density: 0.94,
     speed: 0.9,
     accent: '129,140,248',
+    mainDensity: 2.1,
+    mainSpeed: 1.35,
+    primaryHaloPosition: [17, 1.2, -3],
+    secondaryHaloPosition: [-17, -1.9, -5],
   },
   projects: {
     particleColor: '#5eead4',
@@ -163,6 +175,10 @@ const sceneBySection = {
     density: 1.22,
     speed: 1.18,
     accent: '45,212,191',
+    mainDensity: 2.7,
+    mainSpeed: 1.75,
+    primaryHaloPosition: [20, 1.8, -3],
+    secondaryHaloPosition: [-20, -2.2, -5],
   },
   contact: {
     particleColor: '#f9a8d4',
@@ -171,6 +187,10 @@ const sceneBySection = {
     density: 0.9,
     speed: 0.85,
     accent: '244,114,182',
+    mainDensity: 2.2,
+    mainSpeed: 1.3,
+    primaryHaloPosition: [16, 1, -3],
+    secondaryHaloPosition: [-16, -1.6, -5],
   },
 }
 
@@ -208,11 +228,13 @@ function App() {
           particleColor={scene.secondaryHaloColor}
           haloColor={scene.haloColor}
           secondaryHaloColor={scene.particleColor}
-          density={scene.density * 0.78}
-          speed={scene.speed * 1.2}
-          fieldWidth={50}
-          fieldHeight={26}
-          fieldDepth={30}
+          density={scene.mainDensity}
+          speed={scene.mainSpeed}
+          fieldWidth={72}
+          fieldHeight={30}
+          fieldDepth={36}
+          primaryHaloPosition={scene.primaryHaloPosition}
+          secondaryHaloPosition={scene.secondaryHaloPosition}
         />
         <article className="content-card spotlight">
           <h2>{activeSection.title}</h2>

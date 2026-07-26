@@ -101,7 +101,7 @@
 .main-scene {
   position: absolute;
   inset: 0;
-  opacity: 0.34;
+  opacity: 0.5;
   pointer-events: none;
   z-index: 0;
 }
