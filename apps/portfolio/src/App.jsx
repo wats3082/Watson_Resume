@@ -68,6 +68,25 @@ function App() {
             </button>
           ))}
         </nav>
+        <div className="scene-actions" aria-label={`${activeSection.title} actions`}>
+          {activeSection.actions?.map((action) =>
+            action.type === 'section' ? (
+              <button key={`${activeSection.id}-${action.label}`} type="button" className="scene-action-btn" onClick={() => setActive(action.value)}>
+                {action.label}
+              </button>
+            ) : (
+              <a
+                key={`${activeSection.id}-${action.label}`}
+                className="scene-action-btn"
+                href={action.value}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {action.label}
+              </a>
+            ),
+          )}
+        </div>
       </header>
 
       <main className={`main-panel ${isLongSection ? 'main-scroll' : 'main-fit'} ${active === 'projects' ? 'main-projects' : ''}`}>
