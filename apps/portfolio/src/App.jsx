@@ -214,6 +214,8 @@ function App() {
           fieldWidth={90}
           fieldHeight={16}
           fieldDepth={24}
+          primaryHaloPosition={[34, 0.8, -2.5]}
+          secondaryHaloPosition={[-34, -0.8, -4.8]}
         />
         <div className="title-copy">
           <p className="eyebrow">Russell Watson</p>
