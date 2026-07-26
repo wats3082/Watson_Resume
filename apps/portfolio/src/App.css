@@ -17,6 +17,14 @@
   padding: 28px 30px 16px;
 }
 
+.top-stars {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  pointer-events: none;
+  z-index: 1;
+}
+
 .title-copy {
   position: relative;
   z-index: 2;

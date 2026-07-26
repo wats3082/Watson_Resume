@@ -4,8 +4,11 @@ import * as THREE from 'three'
 export function ThreeHeroBackground({
   className = '',
   particleColor = '#8b5cf6',
+  particleSize = 0.08,
   haloColor = '#3b82f6',
+  primaryHaloOpacity = 0.1,
   secondaryHaloColor = '#c4b5fd',
+  secondaryHaloOpacity = 0.14,
   density = 1,
   speed = 1,
   fieldWidth = 36,
@@ -53,7 +56,7 @@ export function ThreeHeroBackground({
     const positionAttribute = pointsGeometry.getAttribute('position')
 
     const pointsMaterial = new THREE.PointsMaterial({
-      size: 0.08,
+      size: particleSize,
       color: new THREE.Color(particleColor),
       transparent: true,
       opacity: 0.8,
@@ -68,7 +71,7 @@ export function ThreeHeroBackground({
       new THREE.MeshBasicMaterial({
         color: haloColor,
         transparent: true,
-        opacity: 0.1,
+        opacity: primaryHaloOpacity,
         wireframe: true,
       }),
     )
@@ -80,7 +83,7 @@ export function ThreeHeroBackground({
       new THREE.MeshBasicMaterial({
         color: secondaryHaloColor,
         transparent: true,
-        opacity: 0.14,
+        opacity: secondaryHaloOpacity,
         wireframe: true,
       }),
     )
@@ -174,9 +177,12 @@ export function ThreeHeroBackground({
     fieldHeight,
     fieldWidth,
     haloColor,
+    particleSize,
+    primaryHaloOpacity,
     particleColor,
     primaryHaloPosition,
     secondaryHaloColor,
+    secondaryHaloOpacity,
     secondaryHaloPosition,
     speed,
   ])
