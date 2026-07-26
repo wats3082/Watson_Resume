@@ -32,22 +32,6 @@ function App() {
         },
       }
 
-  const renderSectionAction = (action) => {
-    if (action.type === 'section') {
-      return (
-        <button key={action.label} type="button" className="section-action" onClick={() => setActive(action.value)}>
-          {action.label}
-        </button>
-      )
-    }
-
-    return (
-      <a key={action.label} className="section-action" href={action.value} target="_blank" rel="noreferrer">
-        {action.label}
-      </a>
-    )
-  }
-
   return (
     <div className="app-shell" style={{ '--accent-rgb': scene.accent }}>
       <header className="title-bar">
@@ -107,9 +91,6 @@ function App() {
             <article className="content-card spotlight">
               <h2>{activeSection.title}</h2>
               <p>{activeSection.body}</p>
-              {!!activeSection.actions?.length && (
-                <div className="section-actions">{activeSection.actions.map((action) => renderSectionAction(action))}</div>
-              )}
             </article>
 
             {active === 'overview' && (
