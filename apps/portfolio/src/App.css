@@ -110,29 +110,11 @@
 
 .content-card {
   position: relative;
-  overflow: hidden;
   background: linear-gradient(165deg, rgba(17, 24, 39, 0.9) 0%, rgba(12, 18, 29, 0.86) 100%);
   border: 1px solid #263041;
   border-radius: 22px;
   padding: 16px;
   box-shadow: 0 20px 45px rgba(2, 6, 23, 0.35);
-}
-
-.content-card::before {
-  content: '';
-  position: absolute;
-  top: -30%;
-  right: -18%;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(var(--accent-rgb), 0.2) 0%, rgba(var(--accent-rgb), 0) 68%);
-  pointer-events: none;
-}
-
-.content-card > * {
-  position: relative;
-  z-index: 1;
 }
 
 .spotlight {
