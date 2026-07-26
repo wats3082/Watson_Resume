@@ -1,5 +1,7 @@
 .app-shell {
   --accent-rgb: 148, 163, 184;
+  --button-accent-rgb: 251, 146, 60;
+  --button-accent-strong-rgb: 245, 124, 45;
   height: 100dvh;
   overflow: hidden;
   background:
@@ -78,9 +80,9 @@
 }
 
 .menu-item {
-  border: 1px solid rgba(92, 107, 130, 0.45);
-  background: rgba(8, 12, 20, 0.56);
-  color: #c6cfdd;
+  border: 1px solid rgba(var(--button-accent-rgb), 0.48);
+  background: rgba(var(--button-accent-rgb), 0.16);
+  color: #fff2e8;
   border-radius: 999px;
   padding: 8px 14px;
   font-size: 0.84rem;
@@ -89,16 +91,32 @@
 }
 
 .menu-item.active {
-  border-color: rgba(var(--accent-rgb), 0.9);
-  color: #0f172a;
-  background: rgba(var(--accent-rgb), 0.92);
-  box-shadow: 0 8px 24px rgba(var(--accent-rgb), 0.26);
+  border-color: rgba(var(--button-accent-rgb), 1);
+  color: #1b0d06;
+  background: rgba(var(--button-accent-rgb), 0.96);
+  box-shadow: 0 8px 24px rgba(var(--button-accent-rgb), 0.34);
 }
 
 .menu-item:focus-visible {
   outline: none;
-  border-color: rgba(var(--accent-rgb), 1);
-  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.36);
+  border-color: rgba(var(--button-accent-rgb), 1);
+  box-shadow: 0 0 0 2px rgba(var(--button-accent-rgb), 0.42);
+}
+
+.menu-item:hover {
+  background: rgba(var(--button-accent-rgb), 0.26);
+  border-color: rgba(var(--button-accent-rgb), 0.8);
+}
+
+.menu-item:active {
+  background: rgba(var(--button-accent-strong-rgb), 0.95);
+  border-color: rgba(var(--button-accent-strong-rgb), 1);
+}
+
+.menu-item:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .main-panel {
