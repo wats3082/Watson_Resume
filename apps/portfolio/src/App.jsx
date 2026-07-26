@@ -67,7 +67,7 @@ function App() {
         </nav>
       </header>
 
-      <main className={`main-panel ${isLongSection ? 'main-scroll' : 'main-fit'}`}>
+      <main className={`main-panel ${isLongSection ? 'main-scroll' : 'main-fit'} ${active === 'projects' ? 'main-projects' : ''}`}>
         <ThreeHeroBackground
           className="main-scene"
           particleColor={scene.particleColor}
@@ -87,7 +87,7 @@ function App() {
         />
 
         <AnimatePresence mode="wait">
-          <motion.div key={active} className="page-stage" {...stageAnimation}>
+          <motion.div key={active} className={`page-stage ${active === 'projects' ? 'page-stage-projects' : ''}`} {...stageAnimation}>
             <article className="content-card spotlight">
               <h2>{activeSection.title}</h2>
               <p>{activeSection.body}</p>
