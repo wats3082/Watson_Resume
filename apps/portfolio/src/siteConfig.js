@@ -132,6 +132,16 @@ export const siteConfig = {
       description: 'Searchable MongoDB-backed review system for dynamic content management and user interaction.',
       url: 'https://wats3082.github.io/movie-review-database/',
     },
+    {
+      name: 'Cybersecurity React Quiz',
+      description: 'Interactive cybersecurity quiz experience rebuilt in React and deployed on GitHub Pages.',
+      url: 'https://wats3082.github.io/Game-Cybersecurity_React_Quiz/',
+    },
+    {
+      name: 'Project Checkout Cart',
+      description: 'Stripe-style checkout frontend with dummy transaction data and an AWS-ready service architecture.',
+      url: 'https://wats3082.github.io/Project-Checkout-Cart/',
+    },
   ],
 }
 
