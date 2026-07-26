@@ -47,7 +47,6 @@
   letter-spacing: -0.02em;
   max-width: 800px;
 }
-
 .subtitle {
   margin: 10px 0 0;
   max-width: 720px;
@@ -94,6 +93,7 @@
   margin: 0 auto;
   padding: 14px 36px 20px;
   min-height: 0;
+  position: relative;
 }
 
 .main-panel.main-fit {
@@ -102,6 +102,19 @@
 
 .main-panel.main-scroll {
   overflow-y: auto;
+}
+
+.main-scene {
+  position: absolute;
+  inset: 0;
+  opacity: 0.34;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.main-panel > :not(.main-scene) {
+  position: relative;
+  z-index: 1;
 }
 
 .content-card {

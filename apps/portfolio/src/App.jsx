@@ -188,12 +188,11 @@ function App() {
           particleColor={scene.particleColor}
           haloColor={scene.haloColor}
           secondaryHaloColor={scene.secondaryHaloColor}
-          density={scene.density}
-          speed={scene.speed}
+          density={scene.density * 1.18}
+          speed={scene.speed * 1.35}
         />
         <div className="title-copy">
           <p className="eyebrow">Russell Watson</p>
-          <h1>Security Software & Systems Engineer</h1>
           <p className="subtitle">{sections[0].body}</p>
         </div>
       </header>
@@ -212,6 +211,17 @@ function App() {
       </nav>
 
       <main className={`main-panel ${isLongSection ? 'main-scroll' : 'main-fit'}`}>
+        <ThreeHeroBackground
+          className="main-scene"
+          particleColor={scene.secondaryHaloColor}
+          haloColor={scene.haloColor}
+          secondaryHaloColor={scene.particleColor}
+          density={scene.density * 0.78}
+          speed={scene.speed * 1.2}
+          fieldWidth={50}
+          fieldHeight={26}
+          fieldDepth={30}
+        />
         <article className="content-card spotlight">
           <h2>{activeSection.title}</h2>
           <p>{activeSection.body}</p>
