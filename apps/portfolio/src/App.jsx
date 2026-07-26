@@ -205,7 +205,7 @@ function App() {
       <header className="title-bar">
         <ThreeHeroBackground
           className="top-stars"
-          particleColor={scene.secondaryHaloColor}
+          particleColor={scene.particleColor}
           particleSize={0.028}
           primaryHaloOpacity={0}
           secondaryHaloOpacity={0}
@@ -237,10 +237,10 @@ function App() {
       <main className={`main-panel ${isLongSection ? 'main-scroll' : 'main-fit'}`}>
         <ThreeHeroBackground
           className="main-scene"
-          particleColor={scene.secondaryHaloColor}
+          particleColor={scene.particleColor}
           particleSize={0.034}
           haloColor={scene.haloColor}
-          secondaryHaloColor={scene.particleColor}
+          secondaryHaloColor={scene.secondaryHaloColor}
           density={scene.mainDensity}
           speed={scene.mainSpeed}
           fieldWidth={72}
@@ -249,122 +249,125 @@ function App() {
           primaryHaloPosition={scene.primaryHaloPosition}
           secondaryHaloPosition={scene.secondaryHaloPosition}
         />
-        <article className="content-card spotlight">
-          <h2>{activeSection.title}</h2>
-          <p>{activeSection.body}</p>
-        </article>
 
-        {active === 'overview' && (
-          <section className="content-grid">
-            <article className="content-card">
-              <h3>Education & Community</h3>
-              <p>B.S. Business & Technology</p>
-              <p>A.S. Computer Science</p>
-              <p>Community Outreach: Chandler Schools STEM Judge and Volunteer.</p>
-            </article>
-            <article className="content-card">
-              <h3>Core Focus Areas</h3>
-              <ul className="chip-list">
-                {focusAreas.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-          </section>
-        )}
+        <div key={active} className="page-stage">
+          <article className="content-card spotlight">
+            <h2>{activeSection.title}</h2>
+            <p>{activeSection.body}</p>
+          </article>
 
-        {active === 'experience' && (
-          <section className="stack-list">
-            {experience.map((job) => (
-              <article key={`${job.company}-${job.period}`} className="content-card timeline-card">
-                <div className="timeline-header">
-                  <h3>
-                    {job.role} · {job.company}
-                  </h3>
-                  <span>{job.period}</span>
-                </div>
-                <ul className="detail-list">
-                  {job.details.map((detail) => (
-                    <li key={detail}>{detail}</li>
+          {active === 'overview' && (
+            <section className="content-grid">
+              <article className="content-card">
+                <h3>Education & Community</h3>
+                <p>B.S. Business & Technology</p>
+                <p>A.S. Computer Science</p>
+                <p>Community Outreach: Chandler Schools STEM Judge and Volunteer.</p>
+              </article>
+              <article className="content-card">
+                <h3>Core Focus Areas</h3>
+                <ul className="chip-list">
+                  {focusAreas.map((item) => (
+                    <li key={item}>{item}</li>
                   ))}
                 </ul>
               </article>
-            ))}
-          </section>
-        )}
+            </section>
+          )}
 
-        {active === 'credentials' && (
-          <section className="content-grid">
-            <article className="content-card">
-              <h3>Certifications</h3>
-              <ul className="detail-list">
-                {certifications.map((cert) => (
-                  <li key={cert}>{cert}</li>
-                ))}
-              </ul>
-            </article>
-            <article className="content-card">
-              <h3>Education</h3>
-              <ul className="detail-list">
-                {education.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </article>
-          </section>
-        )}
-
-        {active === 'projects' && (
-          <section className="project-grid">
-            {projects.map((project) => (
-              <ThreeCardTilt key={project.name} className="project-card">
-                <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
-                  <div className="project-media">
-                    <img src={project.image} alt={`${project.name} preview`} loading="lazy" />
+          {active === 'experience' && (
+            <section className="stack-list">
+              {experience.map((job) => (
+                <article key={`${job.company}-${job.period}`} className="content-card timeline-card">
+                  <div className="timeline-header">
+                    <h3>
+                      {job.role} · {job.company}
+                    </h3>
+                    <span>{job.period}</span>
                   </div>
-                  <h3>{project.name}</h3>
-                  <p>{project.description}</p>
-                  <span>Open GitHub Pages demo →</span>
-                </a>
-              </ThreeCardTilt>
-            ))}
-          </section>
-        )}
+                  <ul className="detail-list">
+                    {job.details.map((detail) => (
+                      <li key={detail}>{detail}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </section>
+          )}
 
-        {active === 'contact' && (
-          <section className="content-grid">
-            <article className="content-card">
-              <div className="contact-profile-wrap">
-                <img
-                  className="contact-profile-image"
-                  src={`${import.meta.env.BASE_URL}profile-screenshot.png`}
-                  alt="Russell Watson profile"
-                />
-              </div>
-              <h3>Email</h3>
-              <p>
-                <a href="mailto:russellalanwatson@gmail.com">russellalanwatson@gmail.com</a>
-              </p>
-              <h3>Phone</h3>
-              <p>
-                <a href="tel:+14804167911">(480) 416-7911</a>
-              </p>
-            </article>
-            <article className="content-card">
-              <h3>Links</h3>
-              <p>
-                <a href="https://github.com/wats3082?tab=repositories" target="_blank" rel="noreferrer">
-                  GitHub Repositories
-                </a>
-              </p>
-              <p>
-                <a href="https://wats3082.github.io/Portfolio-2025-RW/" target="_blank" rel="noreferrer">
-                  Portfolio 2025
-                </a>
-              </p>
-            </article>
-          </section>
-        )}
+          {active === 'credentials' && (
+            <section className="content-grid">
+              <article className="content-card">
+                <h3>Certifications</h3>
+                <ul className="detail-list">
+                  {certifications.map((cert) => (
+                    <li key={cert}>{cert}</li>
+                  ))}
+                </ul>
+              </article>
+              <article className="content-card">
+                <h3>Education</h3>
+                <ul className="detail-list">
+                  {education.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            </section>
+          )}
+
+          {active === 'projects' && (
+            <section className="project-grid">
+              {projects.map((project) => (
+                <ThreeCardTilt key={project.name} className="project-card">
+                  <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
+                    <div className="project-media">
+                      <img src={project.image} alt={`${project.name} preview`} loading="lazy" />
+                    </div>
+                    <h3>{project.name}</h3>
+                    <p>{project.description}</p>
+                    <span>Open GitHub Pages demo →</span>
+                  </a>
+                </ThreeCardTilt>
+              ))}
+            </section>
+          )}
+
+          {active === 'contact' && (
+            <section className="content-grid">
+              <article className="content-card">
+                <div className="contact-profile-wrap">
+                  <img
+                    className="contact-profile-image"
+                    src={`${import.meta.env.BASE_URL}profile-screenshot.png`}
+                    alt="Russell Watson profile"
+                  />
+                </div>
+                <h3>Email</h3>
+                <p>
+                  <a href="mailto:russellalanwatson@gmail.com">russellalanwatson@gmail.com</a>
+                </p>
+                <h3>Phone</h3>
+                <p>
+                  <a href="tel:+14804167911">(480) 416-7911</a>
+                </p>
+              </article>
+              <article className="content-card">
+                <h3>Links</h3>
+                <p>
+                  <a href="https://github.com/wats3082?tab=repositories" target="_blank" rel="noreferrer">
+                    GitHub Repositories
+                  </a>
+                </p>
+                <p>
+                  <a href="https://wats3082.github.io/Portfolio-2025-RW/" target="_blank" rel="noreferrer">
+                    Portfolio 2025
+                  </a>
+                </p>
+              </article>
+            </section>
+          )}
+        </div>
       </main>
     </div>
   )
