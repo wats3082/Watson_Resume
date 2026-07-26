@@ -238,6 +238,7 @@ function App() {
         <ThreeHeroBackground
           className="main-scene"
           particleColor={scene.secondaryHaloColor}
+          particleSize={0.034}
           haloColor={scene.haloColor}
           secondaryHaloColor={scene.particleColor}
           density={scene.mainDensity}
