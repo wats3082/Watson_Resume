@@ -194,8 +194,8 @@ function App() {
                     </a>
                   </p>
                   <p>
-                    <a href="https://wats3082.github.io/Portfolio-2025-RW/" target="_blank" rel="noreferrer">
-                      Portfolio 2025
+                    <a href="https://wats3082.github.io/Project-Yelp-Clone/" target="_blank" rel="noreferrer">
+                      Business Reviews Project
                     </a>
                   </p>
                 </article>

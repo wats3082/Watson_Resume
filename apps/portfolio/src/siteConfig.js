@@ -17,7 +17,7 @@ export const siteConfig = {
       actions: [
         { label: 'View Projects', type: 'section', value: 'projects' },
         { label: 'View Experience', type: 'section', value: 'experience' },
-        { label: 'Portfolio 2025', type: 'link', value: 'https://wats3082.github.io/Portfolio-2025-RW/' },
+        { label: 'Business Reviews Project', type: 'link', value: 'https://wats3082.github.io/Project-Yelp-Clone/' },
       ],
     },
     {
@@ -128,7 +128,7 @@ export const siteConfig = {
       url: 'https://wats3082.github.io/Project-Web-Scraper/',
     },
     {
-      name: 'Movie Review Database',
+      name: 'Business Reviews Project',
       description: 'Yelp-style local discovery experience for restaurants, movies, shops, and schools.',
       url: 'https://wats3082.github.io/Project-Yelp-Clone/',
     },
