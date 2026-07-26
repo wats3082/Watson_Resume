@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ThreeCardTilt, ThreeHeroBackground } from '@watson/scene-kit'
+import { ThreeHeroBackground } from '@watson/scene-kit'
 import './App.css'
 
 const sections = [
@@ -109,25 +109,21 @@ const projects = [
     name: 'Open Weather App',
     description: 'Professional weather API dashboard built with Flask and Python, delivering reliable forecasting and local insights.',
     url: 'https://wats3082.github.io/weather-api-v2/',
-    image: `${import.meta.env.BASE_URL}project-weather.jpg`,
   },
   {
     name: 'PyInvaders',
     description: 'Playable browser shooter with boss wave logic and tuned visual effects.',
     url: 'https://wats3082.github.io/Game-PyInvaders/',
-    image: `${import.meta.env.BASE_URL}project-pyinvaders.jpg`,
   },
   {
     name: 'Web Scraper Automation',
     description: 'Automated data collection from Wikipedia tables into Excel-ready output for analytics and reporting.',
     url: 'https://wats3082.github.io/web-scraper-automation/',
-    image: `${import.meta.env.BASE_URL}project-scraper.jpg`,
   },
   {
     name: 'Movie Review Database',
     description: 'Searchable MongoDB-backed review system for dynamic content management and user interaction.',
     url: 'https://wats3082.github.io/movie-review-database/',
-    image: `${import.meta.env.BASE_URL}project-movie.jpg`,
   },
 ]
 
@@ -197,7 +193,7 @@ const sceneBySection = {
 function App() {
   const [active, setActive] = useState('overview')
   const activeSection = sections.find((s) => s.id === active) || sections[0]
-  const isLongSection = active === 'experience' || active === 'projects'
+  const isLongSection = active === 'experience'
   const scene = sceneBySection[active] || sceneBySection.overview
 
   return (
@@ -319,18 +315,15 @@ function App() {
           )}
 
           {active === 'projects' && (
-            <section className="project-grid">
+            <section className="project-list">
               {projects.map((project) => (
-                <ThreeCardTilt key={project.name} className="project-card">
+                <article key={project.name} className="project-card">
                   <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
-                    <div className="project-media">
-                      <img src={project.image} alt={`${project.name} preview`} loading="lazy" />
-                    </div>
                     <h3>{project.name}</h3>
                     <p>{project.description}</p>
                     <span>Open GitHub Pages demo →</span>
                   </a>
-                </ThreeCardTilt>
+                </article>
               ))}
             </section>
           )}
