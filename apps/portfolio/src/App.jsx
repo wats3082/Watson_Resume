@@ -324,7 +324,7 @@ function App() {
               <div className="contact-profile-wrap">
                 <img
                   className="contact-profile-image"
-                  src={`${import.meta.env.BASE_URL}profile-screenshot.jpg`}
+                  src={`${import.meta.env.BASE_URL}profile-screenshot.png`}
                   alt="Russell Watson profile"
                 />
               </div>
