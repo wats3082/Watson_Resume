@@ -106,6 +106,13 @@ export function ThreeHeroBackground({
     }
     document.addEventListener('visibilitychange', onVisibilityChange)
 
+    const primaryBaseX = primaryHaloPosition[0]
+    const primaryBaseY = primaryHaloPosition[1]
+    const primaryBaseZ = primaryHaloPosition[2]
+    const secondaryBaseX = secondaryHaloPosition[0]
+    const secondaryBaseY = secondaryHaloPosition[1]
+    const secondaryBaseZ = secondaryHaloPosition[2]
+
     const animate = () => {
       if (!isVisible) return
       const dt = Math.min(clock.getDelta(), 0.05)
@@ -130,11 +137,19 @@ export function ThreeHeroBackground({
       points.rotation.y += dt * 0.054 * rotationScale
       points.rotation.x = Math.sin(frame * 0.003) * (reduceMotion ? 0.03 : 0.08)
       pointsMaterial.opacity = 0.55 + Math.sin(frame * 0.01) * 0.16
+
+      // Slow cinematic drift so spheres float across and in/out of depth.
+      halo.position.x = primaryBaseX + Math.sin(frame * 0.0045) * 5.2
+      halo.position.y = primaryBaseY + Math.sin(frame * 0.0065) * 1.2
+      halo.position.z = primaryBaseZ + Math.cos(frame * 0.0038) * 2.4
       halo.rotation.y -= dt * 0.12 * rotationScale
       halo.rotation.z += dt * 0.06 * rotationScale
+
+      accentHalo.position.x = secondaryBaseX + Math.cos(frame * 0.0042) * 4.6
+      accentHalo.position.y = secondaryBaseY + Math.sin(frame * 0.0068) * 1.1
+      accentHalo.position.z = secondaryBaseZ + Math.sin(frame * 0.0034) * 2.1
       accentHalo.rotation.y += dt * 0.07 * rotationScale
       accentHalo.rotation.x -= dt * 0.04 * rotationScale
-      accentHalo.position.y = secondaryHaloPosition[1] + Math.sin(frame * 0.01) * 0.35
       renderer.render(scene, camera)
     }
     renderer.setAnimationLoop(animate)
