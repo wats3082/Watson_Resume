@@ -134,6 +134,7 @@ const projects = [
 function App() {
   const [active, setActive] = useState('overview')
   const activeSection = sections.find((s) => s.id === active) || sections[0]
+  const isLongSection = active === 'experience' || active === 'projects'
 
   return (
     <div className="app-shell">
@@ -159,7 +160,7 @@ function App() {
         ))}
       </nav>
 
-      <main className="main-panel">
+      <main className={`main-panel ${isLongSection ? 'main-scroll' : 'main-fit'}`}>
         <article className="content-card spotlight">
           <h2>{activeSection.title}</h2>
           <p>{activeSection.body}</p>
@@ -181,18 +182,18 @@ function App() {
         {active === 'overview' && (
           <section className="content-grid">
             <article className="content-card">
+              <h3>Education & Community</h3>
+              <p>B.S. Business & Technology</p>
+              <p>A.S. Computer Science</p>
+              <p>Community Outreach: Chandler Schools STEM Judge and Volunteer.</p>
+            </article>
+            <article className="content-card">
               <h3>Core Focus Areas</h3>
               <ul className="chip-list">
                 {focusAreas.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-            </article>
-            <article className="content-card">
-              <h3>Education & Community</h3>
-              <p>B.S. Business & Technology</p>
-              <p>A.S. Computer Science</p>
-              <p>Community Outreach: Chandler Schools STEM Judge and Volunteer.</p>
             </article>
           </section>
         )}
