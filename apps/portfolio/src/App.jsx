@@ -138,7 +138,7 @@ const sceneBySection = {
     secondaryHaloColor: '#cbd5e1',
     density: 1,
     speed: 1,
-    accent: '148,163,184',
+    accent: '245,158,11',
     mainDensity: 2.3,
     mainSpeed: 1.45,
     primaryHaloPosition: [18, 1.3, -3],
