@@ -20,7 +20,7 @@
 .top-stars {
   position: absolute;
   inset: 0;
-  opacity: 0.22;
+  opacity: 0.36;
   pointer-events: none;
   z-index: 1;
 }

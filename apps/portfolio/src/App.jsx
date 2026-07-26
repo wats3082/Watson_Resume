@@ -207,8 +207,8 @@ function App() {
           className="top-stars"
           particleColor={scene.particleColor}
           particleSize={0.028}
-          primaryHaloOpacity={0}
-          secondaryHaloOpacity={0}
+          primaryHaloOpacity={0.12}
+          secondaryHaloOpacity={0.16}
           density={0.75}
           speed={0.78}
           fieldWidth={90}
@@ -241,6 +241,8 @@ function App() {
           particleSize={0.034}
           haloColor={scene.haloColor}
           secondaryHaloColor={scene.secondaryHaloColor}
+          primaryHaloOpacity={0}
+          secondaryHaloOpacity={0}
           density={scene.mainDensity}
           speed={scene.mainSpeed}
           fieldWidth={72}
