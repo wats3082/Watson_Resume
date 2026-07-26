@@ -11,8 +11,9 @@ function App() {
   const activeSection = sections.find((s) => s.id === active) || sections[0]
   const isLongSection = activeSection.layout === 'scroll'
   const scene = sceneBySection[active] || sceneBySection.overview
-  const sharedStarSize = 0.046
-  const sharedStarSpeed = scene.mainSpeed
+  const starHighlightColor = `rgb(${scene.accent})`
+  const sharedStarSize = 0.075
+  const sharedStarSpeed = scene.mainSpeed * 0.58
   const sharedStarDensity = scene.mainDensity
   const sharedStarField = {
     width: 84,
@@ -37,7 +38,7 @@ function App() {
       <header className="title-bar">
         <ThreeHeroBackground
           className="top-stars"
-          particleColor={scene.particleColor}
+          particleColor={starHighlightColor}
           particleSize={sharedStarSize}
           primaryHaloOpacity={0}
           secondaryHaloOpacity={0}
@@ -68,24 +69,6 @@ function App() {
       </header>
 
       <main className={`main-panel ${isLongSection ? 'main-scroll' : 'main-fit'} ${active === 'projects' ? 'main-projects' : ''}`}>
-        <ThreeHeroBackground
-          className="main-scene"
-          particleColor={scene.particleColor}
-          particleSize={sharedStarSize}
-          haloColor={scene.haloColor}
-          secondaryHaloColor={scene.secondaryHaloColor}
-          primaryHaloOpacity={0}
-          secondaryHaloOpacity={0}
-          density={sharedStarDensity}
-          speed={sharedStarSpeed}
-          fieldWidth={sharedStarField.width}
-          fieldHeight={sharedStarField.height}
-          fieldDepth={sharedStarField.depth}
-          primaryHaloPosition={scene.primaryHaloPosition}
-          secondaryHaloPosition={scene.secondaryHaloPosition}
-          seed={sharedStarSeed}
-        />
-
         <AnimatePresence mode="wait">
           <motion.div key={active} className={`page-stage ${active === 'projects' ? 'page-stage-projects' : ''}`} {...stageAnimation}>
             <article className="content-card spotlight">
