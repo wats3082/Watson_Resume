@@ -50,7 +50,8 @@ function App() {
           seed={sharedStarSeed}
         />
         <div className="title-copy">
-          <p className="eyebrow">{identity.name}</p>
+          <p className="eyebrow">Security Software & Systems Engineer</p>
+          <h1>{identity.name}</h1>
           <p className="subtitle">{identity.subtitle}</p>
         </div>
 
@@ -60,6 +61,7 @@ function App() {
               key={section.id}
               type="button"
               className={`menu-item ${active === section.id ? 'active' : ''}`}
+              aria-current={active === section.id ? 'page' : undefined}
               onClick={() => setActive(section.id)}
             >
               {section.title}
@@ -72,6 +74,7 @@ function App() {
         <AnimatePresence mode="wait">
           <motion.div key={active} className={`page-stage ${active === 'projects' ? 'page-stage-projects' : ''}`} {...stageAnimation}>
             <article className="content-card spotlight">
+              <span className="section-tag">Portfolio Section</span>
               <h2>{activeSection.title}</h2>
               <p>{activeSection.body}</p>
             </article>
