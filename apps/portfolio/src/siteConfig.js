@@ -142,6 +142,12 @@ export const siteConfig = {
       description: 'Stripe-style checkout frontend with dummy transaction data and an AWS-ready service architecture.',
       url: 'https://wats3082.github.io/Project-Checkout-Cart/',
     },
+    {
+      name: 'Email Your Congressman',
+      description:
+        'Civic engagement tool to look up your state and city representatives and send structured email templates to elected officials.',
+      url: 'https://wats3082.github.io/agentic-emailYourCongressman/',
+    },
   ],
 }
 
