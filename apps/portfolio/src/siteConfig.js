@@ -1,211 +1,71 @@
 export const siteConfig = {
   identity: {
     name: 'Russell Watson',
-    subtitle:
-      'Security Software and Systems Engineer with extensive experience in cloud security (AWS), incident response, automation, and enterprise system engineering.',
-    profileImage: 'profile-screenshot.png',
+    intro:
+      'I combine 15 years in asset protection and security operations with hands-on software engineering to turn complex, risk-sensitive workflows into clear, resilient products.',
     email: 'russellalanwatson@gmail.com',
-    phone: '+14804167911',
-    phoneDisplay: '(480) 416-7911',
+    linkedin: 'https://www.linkedin.com/in/r-wats3082',
+    github: 'https://github.com/wats3082',
   },
-  sections: [
-    {
-      id: 'overview',
-      title: 'Overview',
-      body: 'Security Software and Systems Engineer with extensive experience in cloud security (AWS), incident response, automation, and enterprise system engineering.',
-      layout: 'fit',
-      actions: [
-        { label: 'View Projects', type: 'section', value: 'projects' },
-        { label: 'View Experience', type: 'section', value: 'experience' },
-        { label: 'Business Reviews Project', type: 'link', value: 'https://wats3082.github.io/Project-Yelp-Clone/' },
-      ],
-    },
-    {
-      id: 'experience',
-      title: 'Experience',
-      body: 'Security engineering leadership across software delivery, SecOps, incident response, cloud hardening, and enterprise systems reliability.',
-      layout: 'scroll',
-      actions: [
-        { label: 'View Credentials', type: 'section', value: 'credentials' },
-        { label: 'Contact Me', type: 'section', value: 'contact' },
-      ],
-    },
-    {
-      id: 'credentials',
-      title: 'Credentials',
-      body: 'Lenel Certified Expert · PMP · Security+ · PSP · AWS Certified Data Engineer · Milestone Video Expert.',
-      layout: 'fit',
-      actions: [
-        { label: 'View Experience', type: 'section', value: 'experience' },
-        { label: 'View Projects', type: 'section', value: 'projects' },
-      ],
-    },
-    {
-      id: 'projects',
-      title: 'Projects',
-      body: 'Interactive demos published to GitHub Pages with production-minded engineering patterns.',
-      layout: 'fit',
-      actions: [
-        { label: 'All Repositories', type: 'link', value: 'https://github.com/wats3082?tab=repositories' },
-        { label: 'Contact Me', type: 'section', value: 'contact' },
-      ],
-    },
-    {
-      id: 'contact',
-      title: 'Contact',
-      body: 'Open to security engineering, automation, and cloud architecture opportunities.',
-      layout: 'fit',
-      actions: [
-        { label: 'Email', type: 'link', value: 'mailto:russellalanwatson@gmail.com' },
-        { label: 'GitHub', type: 'link', value: 'https://github.com/wats3082?tab=repositories' },
-      ],
-    },
-  ],
-  certifications: [
-    'Lenel Certified Expert',
-    'PMP',
-    'Security+',
-    'PSP Physical Security Professional',
-    'AWS Certified Data Engineer',
-    'Milestone Video Expert',
-  ],
-  education: ['B.S. Business & Technology', 'A.S. Computer Science'],
-  focusAreas: [
-    'Threat detection and SIEM tuning',
-    'AWS IAM/KMS security controls',
-    'Incident response and forensics',
-    'Python, PowerShell, Java automation',
-    'Ansible and MCP configuration',
-    'Power BI, Tableau, QuickSight analytics',
-  ],
-  experience: [
-    {
-      company: 'Amazon',
-      role: 'Security Software Engineer',
-      period: '2022 — Present',
-      details: [
-        'Leading modern software development for security programs including CI/CD, code review, and sprint execution.',
-        'Strengthened identity governance by leading enterprise password rotation initiatives with AWS native security services.',
-        'Improved detection and response with tuned alerting, threat hunting workflows, and high-volume incident triage.',
-        'Built automated security workflows using Python, PowerShell, and AI agents to accelerate remediation cycles.',
-        'Executed vulnerability remediation and patching across application servers, terminal servers, and cloud workloads.',
-      ],
-    },
-    {
-      company: 'Darden',
-      role: 'Program Manager (Operations/Security)',
-      period: '2017 — 2022',
-      details: ['Coordinated with external vendors to secure critical systems and implement security best practices.'],
-    },
-    {
-      company: 'Oklahoma City RiverSport',
-      role: 'Program Manager',
-      period: '2015 — 2017',
-      details: ['Coordinated with external vendors to secure critical systems and implement security best practices.'],
-    },
-    {
-      company: 'Ford Audio Video',
-      role: 'Field Engineer',
-      period: '2008 — 2012',
-      details: ['Designed, installed, and maintained IDS/IPS solutions for hospitals, airports, and commercial spaces.'],
-    },
-  ],
   projects: [
     {
-      name: 'Open Weather App',
-      description:
-        'Professional weather API dashboard built with Flask and Python, delivering reliable forecasting and local insights.',
-      url: 'https://wats3082.github.io/weather-api-v2/',
-    },
-    {
-      name: 'PyInvaders',
-      description: 'Playable browser shooter with boss wave logic and tuned visual effects.',
-      url: 'https://wats3082.github.io/Game-PyInvaders/',
-    },
-    {
-      name: 'Web Scraper Automation',
-      description: 'Automated data collection from Wikipedia tables into Excel-ready output for analytics and reporting.',
-      url: 'https://wats3082.github.io/Project-Web-Scraper/',
-    },
-    {
-      name: 'Business Reviews Project',
-      description: 'Yelp-style local discovery experience for restaurants, movies, shops, and schools.',
-      url: 'https://wats3082.github.io/Project-Yelp-Clone/',
-    },
-    {
-      name: 'Cybersecurity Quiz',
-      description: 'Interactive cybersecurity quiz experience rebuilt in React and deployed on GitHub Pages.',
-      url: 'https://wats3082.github.io/Project-Cybersecurity-Quiz/',
-    },
-    {
-      name: 'Project Checkout Cart',
-      description: 'Stripe-style checkout frontend with dummy transaction data and an AWS-ready service architecture.',
-      url: 'https://wats3082.github.io/Project-Checkout-Cart/',
-    },
-    {
       name: 'Email Your Congressman',
-      description:
-        'Civic engagement tool to look up your state and city representatives and send structured email templates to elected officials.',
-      url: 'https://wats3082.github.io/agentic-emailYourCongressman/',
+      type: 'Civic technology · React application',
+      image: 'email-congress.png',
+      problem:
+        'People need a direct path from a local concern to the correct elected representative and a useful first draft—not another maze of government websites.',
+      architecture:
+        'A React and TypeScript interface separates typed state, city, ZIP-range, and representative data from reusable lookup, representative-card, and email-drafting components. Vitest coverage exercises core data and UI behavior.',
+      outcome:
+        'A deployed multi-view workflow lets visitors locate representation, move into a structured message, and review current issues from one responsive experience.',
+      stack: ['React', 'TypeScript', 'Vite', 'Vitest'],
+      demo: 'https://wats3082.github.io/agentic-emailYourCongressman/',
+      repo: 'https://github.com/wats3082/agentic-emailYourCongressman',
+    },
+    {
+      name: 'Weather API v2',
+      type: 'Cloud-ready data product · Full-stack TypeScript',
+      image: 'weather-api-v2.png',
+      problem:
+        'Weather and route-turbulence context are usually fragmented across tools, adding friction for anyone trying to assess conditions quickly.',
+      architecture:
+        'A React/TypeScript client fronts isolated weather and turbulence workflows. The repository pairs it with TypeScript serverless handlers and AWS CDK definitions for API Gateway, Lambda, DynamoDB, and Cognito.',
+      outcome:
+        'The live simulator unifies city conditions and route-risk exploration while keeping the frontend, service layer, and infrastructure independently evolvable.',
+      stack: ['React', 'TypeScript', 'AWS CDK', 'Serverless'],
+      demo: 'https://wats3082.github.io/weather-api-v2/',
+      repo: 'https://github.com/wats3082/weather-api-v2',
+    },
+    {
+      name: 'Abyss Diver',
+      type: 'Browser game · JavaScript systems design',
+      image: 'abyss-diver.png',
+      problem:
+        'An atmospheric game concept and incomplete Python scaffold needed a frictionless, playable delivery path that worked directly in the browser.',
+      architecture:
+        'A web-first JavaScript build organizes boot, level, and game-over scenes around dedicated diver, shark, and reaper entities, with configuration and assets kept outside gameplay logic.',
+      outcome:
+        'The published survival-horror demo delivers keyboard and pointer controls, resource pressure, enemies, and a complete six-relic objective with no install required.',
+      stack: ['JavaScript', 'HTML5 Canvas', 'Scene system', 'GitHub Pages'],
+      demo: 'https://wats3082.github.io/Game-AbyssDiver/',
+      repo: 'https://github.com/wats3082/Game-AbyssDiver',
     },
   ],
-}
-
-export const sceneBySection = {
-  overview: {
-    particleColor: '#94a3b8',
-    haloColor: '#64748b',
-    secondaryHaloColor: '#cbd5e1',
-    accent: '245,158,11',
-    mainDensity: 2.3,
-    mainSpeed: 1.45,
-    primaryHaloPosition: [18, 1.3, -3],
-    secondaryHaloPosition: [-18, -1.8, -5],
-  },
-  experience: {
-    particleColor: '#93c5fd',
-    haloColor: '#3b82f6',
-    secondaryHaloColor: '#bfdbfe',
-    accent: '96,165,250',
-    mainDensity: 2.5,
-    mainSpeed: 1.55,
-    primaryHaloPosition: [19, 1.5, -3],
-    secondaryHaloPosition: [-19, -2, -5],
-  },
-  credentials: {
-    particleColor: '#a5b4fc',
-    haloColor: '#6366f1',
-    secondaryHaloColor: '#c7d2fe',
-    accent: '139,92,246',
-    mainDensity: 2.1,
-    mainSpeed: 1.35,
-    primaryHaloPosition: [17, 1.2, -3],
-    secondaryHaloPosition: [-17, -1.9, -5],
-  },
-  projects: {
-    particleColor: '#5eead4',
-    haloColor: '#14b8a6',
-    secondaryHaloColor: '#99f6e4',
-    accent: '45,212,191',
-    mainDensity: 2.7,
-    mainSpeed: 1.75,
-    primaryHaloPosition: [20, 1.8, -3],
-    secondaryHaloPosition: [-20, -2.2, -5],
-  },
-  contact: {
-    particleColor: '#f9a8d4',
-    haloColor: '#ec4899',
-    secondaryHaloColor: '#fbcfe8',
-    accent: '245,158,11',
-    mainDensity: 2.2,
-    mainSpeed: 1.3,
-    primaryHaloPosition: [16, 1, -3],
-    secondaryHaloPosition: [-16, -1.6, -5],
-  },
-}
-
-export const sectionTransition = {
-  duration: 0.25,
-  ease: [0.22, 1, 0.36, 1],
-  initialY: 18,
+  strengths: [
+    {
+      number: '01',
+      title: 'Security by context',
+      body: 'I start with threat, impact, and operator reality so controls protect the system without fighting the people using it.',
+    },
+    {
+      number: '02',
+      title: 'Architecture with seams',
+      body: 'Clear boundaries between interface, services, data, and infrastructure keep systems testable and ready to evolve.',
+    },
+    {
+      number: '03',
+      title: 'Delivery under pressure',
+      body: 'Incident response and program leadership inform how I prioritize, communicate tradeoffs, and close the loop.',
+    },
+  ],
 }

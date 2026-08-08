@@ -1,195 +1,221 @@
-import { useState } from 'react'
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { ThreeHeroBackground } from '@watson/scene-kit'
-import { sceneBySection, sectionTransition, siteConfig } from './siteConfig'
+import { motion, useReducedMotion } from 'framer-motion'
+import { ThreeCardTilt, ThreeHeroBackground } from '@watson/scene-kit'
+import { siteConfig } from './siteConfig'
 import './App.css'
 
+const Arrow = () => <span aria-hidden="true">↗</span>
+
 function App() {
-  const { sections, certifications, education, experience, focusAreas, identity, projects } = siteConfig
+  const { identity, projects, strengths } = siteConfig
   const reduceMotion = useReducedMotion()
-  const [active, setActive] = useState('overview')
-  const activeSection = sections.find((s) => s.id === active) || sections[0]
-  const isLongSection = activeSection.layout === 'scroll'
-  const scene = sceneBySection[active] || sceneBySection.overview
-  const starHighlightColor = `rgb(${scene.accent})`
-  const sharedStarSize = 0.075
-  const sharedStarSpeed = scene.mainSpeed * 0.58
-  const sharedStarDensity = scene.mainDensity
-  const sharedStarField = {
-    width: 84,
-    height: 30,
-    depth: 36,
-  }
-  const sharedStarSeed = 3082
-  const stageAnimation = reduceMotion
+  const enter = reduceMotion
     ? {}
     : {
-        initial: { opacity: 0, y: sectionTransition.initialY },
-        animate: { opacity: 1, y: 0 },
-        exit: { opacity: 0, y: -sectionTransition.initialY },
-        transition: {
-          duration: sectionTransition.duration,
-          ease: sectionTransition.ease,
-        },
+        initial: { opacity: 0, y: 24 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, amount: 0.15 },
+        transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
       }
 
   return (
-    <div className="app-shell" style={{ '--accent-rgb': scene.accent }}>
-      <header className="title-bar">
-        <ThreeHeroBackground
-          className="top-stars"
-          particleColor={starHighlightColor}
-          particleSize={sharedStarSize}
-          primaryHaloOpacity={0}
-          secondaryHaloOpacity={0}
-          density={sharedStarDensity}
-          speed={sharedStarSpeed}
-          fieldWidth={sharedStarField.width}
-          fieldHeight={sharedStarField.height}
-          fieldDepth={sharedStarField.depth}
-          seed={sharedStarSeed}
-        />
-        <div className="title-copy">
-          <p className="eyebrow">Security Software & Systems Engineer</p>
-          <h1>{identity.name}</h1>
-          <p className="subtitle">{identity.subtitle}</p>
-        </div>
-
-        <nav className="menu-panel" aria-label="Profile sections">
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              type="button"
-              className={`menu-item ${active === section.id ? 'active' : ''}`}
-              aria-current={active === section.id ? 'page' : undefined}
-              onClick={() => setActive(section.id)}
-            >
-              {section.title}
-            </button>
-          ))}
+    <div className="app-shell">
+      <header className="site-header">
+        <a className="brand" href="#top" aria-label="Russell Watson home">
+          RW<span>.</span>
+        </a>
+        <nav aria-label="Primary navigation">
+          <a href="#story">Background</a>
+          <a href="#work">Work</a>
+          <a href="#contact">Contact</a>
+          <a href={identity.linkedin} target="_blank" rel="noreferrer">
+            LinkedIn <Arrow />
+          </a>
         </nav>
       </header>
 
-      <main className={`main-panel ${isLongSection ? 'main-scroll' : 'main-fit'} ${active === 'projects' ? 'main-projects' : ''}`}>
-        <AnimatePresence mode="wait">
-          <motion.div key={active} className={`page-stage ${active === 'projects' ? 'page-stage-projects' : ''}`} {...stageAnimation}>
-            <article className="content-card spotlight">
-              <span className="section-tag">Portfolio Section</span>
-              <h2>{activeSection.title}</h2>
-              <p>{activeSection.body}</p>
-            </article>
-
-            {active === 'overview' && (
-              <section className="content-grid">
-                <article className="content-card">
-                  <h3>Education & Community</h3>
-                  <p>B.S. Business & Technology</p>
-                  <p>A.S. Computer Science</p>
-                  <p>Community Outreach: Chandler Schools STEM Judge and Volunteer.</p>
-                </article>
-                <article className="content-card">
-                  <h3>Core Focus Areas</h3>
-                  <ul className="chip-list">
-                    {focusAreas.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </article>
-              </section>
-            )}
-
-            {active === 'experience' && (
-              <section className="stack-list">
-                {experience.map((job) => (
-                  <article key={`${job.company}-${job.period}`} className="content-card timeline-card">
-                    <div className="timeline-header">
-                      <h3>
-                        {job.role} · {job.company}
-                      </h3>
-                      <span>{job.period}</span>
-                    </div>
-                    <ul className="detail-list">
-                      {job.details.map((detail) => (
-                        <li key={detail}>{detail}</li>
-                      ))}
-                    </ul>
-                  </article>
-                ))}
-              </section>
-            )}
-
-            {active === 'credentials' && (
-              <section className="content-grid">
-                <article className="content-card">
-                  <h3>Certifications</h3>
-                  <ul className="detail-list">
-                    {certifications.map((cert) => (
-                      <li key={cert}>{cert}</li>
-                    ))}
-                  </ul>
-                </article>
-                <article className="content-card">
-                  <h3>Education</h3>
-                  <ul className="detail-list">
-                    {education.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </article>
-              </section>
-            )}
-
-            {active === 'projects' && (
-              <section className="project-list">
-                {projects.map((project) => (
-                  <article key={project.name} className="project-card">
-                    <a className="project-link" href={project.url} target="_blank" rel="noreferrer">
-                      <h3>{project.name}</h3>
-                      <p>{project.description}</p>
-                      <span>Open GitHub Pages demo →</span>
-                    </a>
-                  </article>
-                ))}
-              </section>
-            )}
-
-            {active === 'contact' && (
-              <section className="content-grid">
-                <article className="content-card">
-                  <div className="contact-profile-wrap">
-                    <img
-                      className="contact-profile-image"
-                      src={`${import.meta.env.BASE_URL}${identity.profileImage}`}
-                      alt={`${identity.name} profile`}
-                    />
-                  </div>
-                  <h3>Email</h3>
-                  <p>
-                    <a href={`mailto:${identity.email}`}>{identity.email}</a>
-                  </p>
-                  <h3>Phone</h3>
-                  <p>
-                    <a href={`tel:${identity.phone}`}>{identity.phoneDisplay}</a>
-                  </p>
-                </article>
-                <article className="content-card">
-                  <h3>Links</h3>
-                  <p>
-                    <a href="https://github.com/wats3082?tab=repositories" target="_blank" rel="noreferrer">
-                      GitHub Repositories
-                    </a>
-                  </p>
-                  <p>
-                    <a href="https://wats3082.github.io/Project-Yelp-Clone/" target="_blank" rel="noreferrer">
-                      Business Reviews Project
-                    </a>
-                  </p>
-                </article>
-              </section>
-            )}
+      <main>
+        <section className="hero" id="top">
+          <ThreeHeroBackground
+            className="hero-scene"
+            particleColor="#5eead4"
+            particleSize={0.08}
+            haloColor="#0f766e"
+            primaryHaloOpacity={0.16}
+            secondaryHaloColor="#f59e0b"
+            secondaryHaloOpacity={0.12}
+            density={1.65}
+            speed={0.85}
+            fieldWidth={62}
+            fieldHeight={26}
+            fieldDepth={32}
+            primaryHaloPosition={[13, 1, -4]}
+            secondaryHaloPosition={[-14, -2, -6]}
+            seed={3082}
+          />
+          <motion.div className="hero-copy" {...enter}>
+            <p className="eyebrow">Security-minded software engineer · Phoenix, Arizona</p>
+            <h1>
+              I build dependable software for <em>high-stakes work.</em>
+            </h1>
+            <p className="hero-lede">
+              {identity.intro}
+            </p>
+            <div className="hero-actions">
+              <a className="button button-primary" href="#work">
+                Explore case studies
+              </a>
+              <a className="button button-secondary" href={`mailto:${identity.email}`}>
+                Start a conversation
+              </a>
+            </div>
           </motion.div>
-        </AnimatePresence>
+          <motion.aside className="hero-proof" {...enter}>
+            <p className="proof-label">What I bring</p>
+            <strong>15 years</strong>
+            <span>protecting people, assets, and systems</span>
+            <div className="proof-rule" />
+            <p>Asset protection discipline translated into secure, operationally grounded engineering.</p>
+          </motion.aside>
+          <a className="scroll-cue" href="#story">
+            <span>Scroll to the story</span>
+            <i aria-hidden="true" />
+          </a>
+        </section>
+
+        <section className="story section" id="story">
+          <motion.div className="section-heading" {...enter}>
+            <p className="eyebrow">Professional background</p>
+            <h2>From protecting physical operations to engineering the systems behind them.</h2>
+          </motion.div>
+          <div className="story-grid">
+            <motion.article className="story-copy" {...enter}>
+              <p className="lead">
+                My route into software engineering started on the operational side of security.
+              </p>
+              <p>
+                Over 15 years in asset protection, field engineering, security operations, and program
+                delivery taught me to assess risk, investigate failures, coordinate under pressure, and
+                design controls people can actually use. I carried that mindset into software.
+              </p>
+              <p>
+                Today I build with React, TypeScript, Python, AWS, automation, and data systems. The
+                through-line is unchanged: understand the environment, reduce ambiguity, and deliver a
+                system that holds up when it matters.
+              </p>
+            </motion.article>
+            <motion.div className="career-track" {...enter}>
+              <article>
+                <span>Foundation</span>
+                <h3>Asset protection & field systems</h3>
+                <p>Risk assessment, incident response, physical security technology, and frontline operations.</p>
+              </article>
+              <article>
+                <span>Expansion</span>
+                <h3>Program & security engineering</h3>
+                <p>Enterprise delivery, cloud security, automation, vulnerability remediation, and analytics.</p>
+              </article>
+              <article>
+                <span>Now</span>
+                <h3>Software systems</h3>
+                <p>Human-centered applications shaped by real operational constraints and security discipline.</p>
+              </article>
+            </motion.div>
+          </div>
+        </section>
+
+        <section className="work section" id="work">
+          <motion.div className="section-heading work-heading" {...enter}>
+            <div>
+              <p className="eyebrow">Selected work</p>
+              <h2>Three deployed systems, each built around a concrete problem.</h2>
+            </div>
+            <p>Every case study links to the working product and its source.</p>
+          </motion.div>
+
+          <div className="case-list">
+            {projects.map((project, index) => (
+              <motion.article className="case-study" key={project.name} {...enter}>
+                <ThreeCardTilt className="case-media" maxTilt={3}>
+                  <img
+                    src={`${import.meta.env.BASE_URL}${project.image}`}
+                    alt={`${project.name} live application screenshot`}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                  />
+                  <span className="case-number">0{index + 1}</span>
+                  <span className="live-badge"><i /> Live deployment</span>
+                </ThreeCardTilt>
+                <div className="case-content">
+                  <p className="case-kicker">{project.type}</p>
+                  <h3>{project.name}</h3>
+                  <dl>
+                    <div>
+                      <dt>Problem</dt>
+                      <dd>{project.problem}</dd>
+                    </div>
+                    <div>
+                      <dt>Architecture</dt>
+                      <dd>{project.architecture}</dd>
+                    </div>
+                    <div>
+                      <dt>Outcome</dt>
+                      <dd>{project.outcome}</dd>
+                    </div>
+                  </dl>
+                  <ul className="stack" aria-label={`${project.name} technologies`}>
+                    {project.stack.map((item) => <li key={item}>{item}</li>)}
+                  </ul>
+                  <div className="case-actions">
+                    <a className="text-link" href={project.demo} target="_blank" rel="noreferrer">
+                      View live demo <Arrow />
+                    </a>
+                    <a className="text-link muted" href={project.repo} target="_blank" rel="noreferrer">
+                      GitHub repository <Arrow />
+                    </a>
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        <section className="strengths section">
+          <motion.div className="section-heading" {...enter}>
+            <p className="eyebrow">Engineering lens</p>
+            <h2>Operational judgment is part of the technical stack.</h2>
+          </motion.div>
+          <div className="strength-grid">
+            {strengths.map((strength) => (
+              <motion.article key={strength.title} {...enter}>
+                <span>{strength.number}</span>
+                <h3>{strength.title}</h3>
+                <p>{strength.body}</p>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        <section className="contact section" id="contact">
+          <motion.div className="contact-card" {...enter}>
+            <p className="eyebrow">Let’s build something dependable</p>
+            <h2>Looking for an engineer who understands both systems and stakes?</h2>
+            <p>Open to software, security engineering, automation, and cloud architecture opportunities.</p>
+            <div className="contact-actions">
+              <a className="button button-primary" href={`mailto:${identity.email}`}>Email Russell</a>
+              <a className="button button-secondary" href={identity.linkedin} target="_blank" rel="noreferrer">
+                Connect on LinkedIn
+              </a>
+              <a className="button button-secondary" href={identity.github} target="_blank" rel="noreferrer">
+                View GitHub
+              </a>
+            </div>
+          </motion.div>
+        </section>
       </main>
+
+      <footer>
+        <span>© {new Date().getFullYear()} Russell Watson</span>
+        <span>Designed and engineered in Phoenix, Arizona.</span>
+      </footer>
     </div>
   )
 }
