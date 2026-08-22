@@ -1,12 +1,8 @@
-import { lazy, Suspense } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { siteConfig } from './siteConfig'
 import './App.css'
 
 const Arrow = () => <span aria-hidden="true">↗</span>
-const ThreeHeroBackground = lazy(() =>
-  import('@watson/scene-kit').then(({ ThreeHeroBackground: component }) => ({ default: component })),
-)
 
 function App() {
   const { identity, experience, projects, strengths } = siteConfig
@@ -14,10 +10,10 @@ function App() {
   const enter = reduceMotion
     ? {}
     : {
-        initial: { opacity: 0, y: 24 },
+        initial: { opacity: 0, y: 10 },
         whileInView: { opacity: 1, y: 0 },
         viewport: { once: true, amount: 0.12 },
-        transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+        transition: { duration: 0.28, ease: 'easeOut' },
       }
 
   return (
@@ -40,25 +36,6 @@ function App() {
 
       <main id="main">
         <section className="hero" id="top" aria-labelledby="hero-title">
-          <Suspense fallback={null}>
-            <ThreeHeroBackground
-              className="hero-scene"
-              particleColor="#5eead4"
-              particleSize={0.08}
-              haloColor="#0f766e"
-              primaryHaloOpacity={0.16}
-              secondaryHaloColor="#f59e0b"
-              secondaryHaloOpacity={0.12}
-              density={1.65}
-              speed={0.85}
-              fieldWidth={62}
-              fieldHeight={26}
-              fieldDepth={32}
-              primaryHaloPosition={[13, 1, -4]}
-              secondaryHaloPosition={[-14, -2, -6]}
-              seed={3082}
-            />
-          </Suspense>
           <motion.div className="hero-copy" {...enter}>
             <p className="eyebrow">Security-minded software engineer · Phoenix, Arizona</p>
             <h1 id="hero-title">

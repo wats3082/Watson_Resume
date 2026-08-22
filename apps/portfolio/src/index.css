@@ -38,7 +38,13 @@ a {
 
 @media (max-width: 680px) {
   html {
-    scroll-padding-top: 116px;
+    scroll-padding-top: 100px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
 
