@@ -7,48 +7,101 @@ export const siteConfig = {
     linkedin: 'https://www.linkedin.com/in/r-wats3082',
     github: 'https://github.com/wats3082',
   },
+  experience: [
+    {
+      company: 'Amazon',
+      role: 'Security Software Engineer',
+      period: '2022 — Present',
+      details: [
+        'Leading modern software development for security programs including CI/CD, code review, and sprint execution.',
+        'Strengthened identity governance by leading enterprise password rotation initiatives with AWS native security services.',
+        'Improved detection and response with tuned alerting, threat hunting workflows, and high-volume incident triage.',
+        'Built automated security workflows using Python, PowerShell, and AI agents to accelerate remediation cycles.',
+        'Executed vulnerability remediation and patching across application servers, terminal servers, and cloud workloads.',
+      ],
+    },
+  ],
   projects: [
     {
-      name: 'Email Your Congressman',
-      type: 'Civic technology · React application',
-      image: 'email-congress.png',
-      problem:
-        'People need a direct path from a local concern to the correct elected representative and a useful first draft—not another maze of government websites.',
-      architecture:
-        'A React and TypeScript interface separates typed state, city, ZIP-range, and representative data from reusable lookup, representative-card, and email-drafting components. Vitest coverage exercises core data and UI behavior.',
-      outcome:
-        'A deployed multi-view workflow lets visitors locate representation, move into a structured message, and review current issues from one responsive experience.',
+      name: 'Sentinel Ops',
+      type: 'Security operations platform',
+      summary:
+        'A browser simulation of access decisions, investigations, device health, video metadata, and operational KPIs, backed by a deployable AWS architecture.',
+      stack: ['React', 'TypeScript', 'AWS CDK', 'DynamoDB'],
+      demo: 'https://wats3082.github.io/System-pacs-security/',
+      repo: 'https://github.com/wats3082/System-pacs-security',
+    },
+    {
+      name: 'Sentinel KPIs',
+      type: 'Security analytics',
+      summary:
+        'A security dashboard that normalizes operational control measurements into posture scoring, trends, and a prioritized remediation queue.',
+      stack: ['React', 'TypeScript', 'Express', 'AWS'],
+      demo: 'https://wats3082.github.io/System-security-kpi/',
+      repo: 'https://github.com/wats3082/System-security-kpi',
+    },
+    {
+      name: 'Pipeline Studio',
+      type: 'Data engineering',
+      summary:
+        'A safe browser simulation for a configurable web-scraping pipeline with bounded collection, provenance, and JSONL or CSV export.',
+      stack: ['React', 'Node.js', 'Data pipelines', 'GitHub Pages'],
+      demo: 'https://wats3082.github.io/Project-Web-Scraper/',
+      repo: 'https://github.com/wats3082/Project-Web-Scraper',
+    },
+    {
+      name: 'Local Lens',
+      type: 'Local discovery',
+      summary:
+        'A local-first Phoenix business discovery product with multidimensional search, profiles, validated reviews, and browser persistence.',
+      stack: ['React', 'Vite', 'Local storage', 'Node test'],
+      demo: 'https://wats3082.github.io/Project-Yelp-Clone/',
+      repo: 'https://github.com/wats3082/Project-Yelp-Clone',
+    },
+    {
+      name: 'Lumina',
+      type: 'Private photo library',
+      summary:
+        'A local-first photo library for importing, searching, favoriting, tagging, and organizing images without uploading them.',
+      stack: ['React', 'Vite', 'IndexedDB', 'Browser APIs'],
+      demo: 'https://wats3082.github.io/Project-Photo-TuME/',
+      repo: 'https://github.com/wats3082/Project-Photo-TuME',
+    },
+    {
+      name: 'Database Workbench',
+      type: 'Safe data operations',
+      summary:
+        'An explicitly sandboxed browser companion to a SQLite desktop tool, demonstrating validated CRUD, schema inspection, and safe queries.',
+      stack: ['Python', 'SQLite', 'JavaScript', 'Transactions'],
+      demo: 'https://wats3082.github.io/Project-Database-GUI/',
+      repo: 'https://github.com/wats3082/Project-Database-GUI',
+    },
+    {
+      name: 'CivicDraft',
+      type: 'Privacy-aware civic tech',
+      summary:
+        'A transparent workflow that helps constituents verify a federal representative and create an editable, deterministic message draft.',
       stack: ['React', 'TypeScript', 'Vite', 'Vitest'],
       demo: 'https://wats3082.github.io/agentic-emailYourCongressman/',
       repo: 'https://github.com/wats3082/agentic-emailYourCongressman',
     },
     {
-      name: 'Weather API v2',
-      type: 'Cloud-ready data product · Full-stack TypeScript',
-      image: 'weather-api-v2.png',
-      problem:
-        'Weather and route-turbulence context are usually fragmented across tools, adding friction for anyone trying to assess conditions quickly.',
-      architecture:
-        'A React/TypeScript client fronts isolated weather and turbulence workflows. The repository pairs it with TypeScript serverless handlers and AWS CDK definitions for API Gateway, Lambda, DynamoDB, and Cognito.',
-      outcome:
-        'The live simulator unifies city conditions and route-risk exploration while keeping the frontend, service layer, and infrastructure independently evolvable.',
-      stack: ['React', 'TypeScript', 'AWS CDK', 'Serverless'],
-      demo: 'https://wats3082.github.io/weather-api-v2/',
-      repo: 'https://github.com/wats3082/weather-api-v2',
+      name: 'Secure Decisions',
+      type: 'Cybersecurity learning',
+      summary:
+        'Scenario-based defensive practice with immediate explanations, remediation guidance, local progress, and category analytics.',
+      stack: ['React', 'TypeScript', 'Local storage', 'GitHub Pages'],
+      demo: 'https://wats3082.github.io/Project-Cybersecurity-Quiz/',
+      repo: 'https://github.com/wats3082/Project-Cybersecurity-Quiz',
     },
     {
-      name: 'Abyss Diver',
-      type: 'Browser game · JavaScript systems design',
-      image: 'abyss-diver.png',
-      problem:
-        'An atmospheric game concept and incomplete Python scaffold needed a frictionless, playable delivery path that worked directly in the browser.',
-      architecture:
-        'A web-first JavaScript build organizes boot, level, and game-over scenes around dedicated diver, shark, and reaper entities, with configuration and assets kept outside gameplay logic.',
-      outcome:
-        'The published survival-horror demo delivers keyboard and pointer controls, resource pressure, enemies, and a complete six-relic objective with no install required.',
-      stack: ['JavaScript', 'HTML5 Canvas', 'Scene system', 'GitHub Pages'],
-      demo: 'https://wats3082.github.io/Game-AbyssDiver/',
-      repo: 'https://github.com/wats3082/Game-AbyssDiver',
+      name: 'Portfolio 2025',
+      type: 'Previous portfolio · Live archive',
+      summary:
+        'The previous static portfolio, retained as a live snapshot of earlier security architecture, cloud, and automation work.',
+      stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
+      demo: 'https://wats3082.github.io/Portfolio-2025-RW/',
+      repo: 'https://github.com/wats3082/Portfolio-2025-RW',
     },
   ],
   strengths: [

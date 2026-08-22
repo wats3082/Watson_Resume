@@ -13,7 +13,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -29,6 +29,17 @@ a {
 
 a {
   color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid #f5b942;
+  outline-offset: 4px;
+}
+
+@media (max-width: 680px) {
+  html {
+    scroll-padding-top: 116px;
+  }
 }
 
 ::selection {

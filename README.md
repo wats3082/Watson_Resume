@@ -8,13 +8,19 @@ shapes secure, dependable products built with React, TypeScript, JavaScript, AWS
 
 **Live portfolio:** <https://wats3082.github.io/Watson_Resume/>
 
-## Featured work
+## Deployed work
 
 | Project | Live demo | Source |
 | --- | --- | --- |
-| Email Your Congressman | [Open demo](https://wats3082.github.io/agentic-emailYourCongressman/) | [wats3082/agentic-emailYourCongressman](https://github.com/wats3082/agentic-emailYourCongressman) |
-| Weather API v2 | [Open demo](https://wats3082.github.io/weather-api-v2/) | [wats3082/weather-api-v2](https://github.com/wats3082/weather-api-v2) |
-| Abyss Diver | [Play demo](https://wats3082.github.io/Game-AbyssDiver/) | [wats3082/Game-AbyssDiver](https://github.com/wats3082/Game-AbyssDiver) |
+| Sentinel Ops | [Open demo](https://wats3082.github.io/System-pacs-security/) | [wats3082/System-pacs-security](https://github.com/wats3082/System-pacs-security) |
+| Sentinel KPIs | [Open demo](https://wats3082.github.io/System-security-kpi/) | [wats3082/System-security-kpi](https://github.com/wats3082/System-security-kpi) |
+| Pipeline Studio | [Open demo](https://wats3082.github.io/Project-Web-Scraper/) | [wats3082/Project-Web-Scraper](https://github.com/wats3082/Project-Web-Scraper) |
+| Local Lens | [Open demo](https://wats3082.github.io/Project-Yelp-Clone/) | [wats3082/Project-Yelp-Clone](https://github.com/wats3082/Project-Yelp-Clone) |
+| Lumina | [Open demo](https://wats3082.github.io/Project-Photo-TuME/) | [wats3082/Project-Photo-TuME](https://github.com/wats3082/Project-Photo-TuME) |
+| Database Workbench | [Open demo](https://wats3082.github.io/Project-Database-GUI/) | [wats3082/Project-Database-GUI](https://github.com/wats3082/Project-Database-GUI) |
+| CivicDraft | [Open demo](https://wats3082.github.io/agentic-emailYourCongressman/) | [wats3082/agentic-emailYourCongressman](https://github.com/wats3082/agentic-emailYourCongressman) |
+| Secure Decisions | [Open demo](https://wats3082.github.io/Project-Cybersecurity-Quiz/) | [wats3082/Project-Cybersecurity-Quiz](https://github.com/wats3082/Project-Cybersecurity-Quiz) |
+| Portfolio 2025 (previous portfolio) | [Open archive](https://wats3082.github.io/Portfolio-2025-RW/) | [wats3082/Portfolio-2025-RW](https://github.com/wats3082/Portfolio-2025-RW) |
 
 ## Architecture
 
@@ -28,7 +34,7 @@ aws-backend/          Serverless contact/backend foundation
 
 The deployed site combines semantic React sections, data-driven case studies, Framer Motion transitions,
 and a custom Three.js particle scene. Vite builds the application with the `/Watson_Resume/` base path,
-and the GitHub Actions workflow publishes `apps/portfolio/dist` to the `gh-pages` branch.
+and the GitHub Actions workflow publishes `apps/portfolio/dist` through GitHub Pages.
 
 ## Local setup
 
@@ -57,8 +63,8 @@ npm run lint --workspace portfolio
 ## Deployment
 
 Pushes to `main` run [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml). The
-workflow installs workspace dependencies, builds the portfolio, and publishes the generated app to GitHub
-Pages at the canonical URL above.
+workflow installs locked workspace dependencies, lints and builds the portfolio, then publishes the generated
+app with GitHub's official Pages actions at the canonical URL above.
 
 ## Contact
 
