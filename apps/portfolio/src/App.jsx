@@ -1,4 +1,3 @@
-import { motion, useReducedMotion } from 'framer-motion'
 import { siteConfig } from './siteConfig'
 import './App.css'
 
@@ -6,15 +5,6 @@ const Arrow = () => <span aria-hidden="true">↗</span>
 
 function App() {
   const { identity, experience, projects, strengths } = siteConfig
-  const reduceMotion = useReducedMotion()
-  const enter = reduceMotion
-    ? {}
-    : {
-        initial: { opacity: 0, y: 10 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true, amount: 0.12 },
-        transition: { duration: 0.28, ease: 'easeOut' },
-      }
 
   return (
     <div className="app-shell">
@@ -36,7 +26,7 @@ function App() {
 
       <main id="main">
         <section className="hero" id="top" aria-labelledby="hero-title">
-          <motion.div className="hero-copy" {...enter}>
+          <div className="hero-copy">
             <p className="eyebrow">Security-minded software engineer · Phoenix, Arizona</p>
             <h1 id="hero-title">
               I build dependable software for <em>high-stakes work.</em>
@@ -46,23 +36,23 @@ function App() {
               <a className="button button-primary" href="#projects">Explore projects</a>
               <a className="button button-secondary" href={`mailto:${identity.email}`}>Start a conversation</a>
             </div>
-          </motion.div>
-          <motion.aside className="hero-proof" {...enter}>
+          </div>
+          <aside className="hero-proof">
             <p className="proof-label">What I bring</p>
             <strong>15 years</strong>
             <span>protecting people, assets, and systems</span>
             <div className="proof-rule" />
             <p>Asset protection discipline translated into secure, operationally grounded engineering.</p>
-          </motion.aside>
+          </aside>
         </section>
 
         <section className="story section" id="about">
-          <motion.div className="section-heading" {...enter}>
+          <div className="section-heading">
             <p className="eyebrow">Professional background</p>
             <h2>From protecting physical operations to engineering the systems behind them.</h2>
-          </motion.div>
+          </div>
           <div className="story-grid">
-            <motion.article className="story-copy" {...enter}>
+            <article className="story-copy">
               <p className="lead">My route into software engineering started on the operational side of security.</p>
               <p>
                 Over 15 years in asset protection, field engineering, security operations, and program delivery
@@ -73,40 +63,40 @@ function App() {
                 Today I build with React, TypeScript, Python, AWS, automation, and data systems. The through-line
                 is unchanged: understand the environment, reduce ambiguity, and deliver a system that holds up.
               </p>
-            </motion.article>
-            <motion.div className="career-track" {...enter}>
+            </article>
+            <div className="career-track">
               <article><span>Foundation</span><h3>Asset protection & field systems</h3><p>Risk assessment, incident response, physical security technology, and frontline operations.</p></article>
               <article><span>Expansion</span><h3>Program & security engineering</h3><p>Enterprise delivery, cloud security, automation, vulnerability remediation, and analytics.</p></article>
               <article><span>Now</span><h3>Software systems</h3><p>Human-centered applications shaped by operational constraints and security discipline.</p></article>
-            </motion.div>
+            </div>
           </div>
         </section>
 
         <section className="experience section" id="experience">
-          <motion.div className="section-heading" {...enter}>
+          <div className="section-heading">
             <p className="eyebrow">Experience</p>
             <h2>Security engineering grounded in operational delivery.</h2>
-          </motion.div>
+          </div>
           {experience.map((job) => (
-            <motion.article className="experience-card" key={`${job.company}-${job.role}`} {...enter}>
+            <article className="experience-card" key={`${job.company}-${job.role}`}>
               <div>
                 <p className="experience-period">{job.period}</p>
                 <h3>{job.role}</h3>
                 <p className="experience-company">{job.company}</p>
               </div>
               <ul>{job.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>
-            </motion.article>
+            </article>
           ))}
         </section>
 
         <section className="work section" id="projects">
-          <motion.div className="section-heading work-heading" {...enter}>
+          <div className="section-heading work-heading">
             <div><p className="eyebrow">Portfolio</p><h2>Deployed systems built around concrete problems.</h2></div>
             <p>Each project links to its working GitHub Pages experience and source repository.</p>
-          </motion.div>
+          </div>
           <div className="project-grid">
             {projects.map((project, index) => (
-              <motion.article className="project-card" key={project.name} {...enter}>
+              <article className="project-card" key={project.name}>
                 <div className="project-topline">
                   <span className="project-number">{String(index + 1).padStart(2, '0')}</span>
                   <span className="live-badge"><i /> Live</span>
@@ -118,39 +108,39 @@ function App() {
                   {project.stack.map((item) => <li key={item}>{item}</li>)}
                 </ul>
                 <div className="project-actions">
-                  <a className="text-link" href={project.demo} target="_blank" rel="noreferrer">Live demo <Arrow /></a>
-                  <a className="text-link muted" href={project.repo} target="_blank" rel="noreferrer">Repository <Arrow /></a>
+                  <a className="text-link" href={project.demo} target="_blank" rel="noreferrer" aria-label={`${project.name} live demo (opens in a new tab)`}>Live demo <Arrow /></a>
+                  <a className="text-link muted" href={project.repo} target="_blank" rel="noreferrer" aria-label={`${project.name} repository (opens in a new tab)`}>Repository <Arrow /></a>
                 </div>
-              </motion.article>
+              </article>
             ))}
           </div>
         </section>
 
         <section className="strengths section" id="expertise">
-          <motion.div className="section-heading" {...enter}>
+          <div className="section-heading">
             <p className="eyebrow">Engineering lens</p>
             <h2>Operational judgment is part of the technical stack.</h2>
-          </motion.div>
+          </div>
           <div className="strength-grid">
             {strengths.map((strength) => (
-              <motion.article key={strength.title} {...enter}>
+              <article key={strength.title}>
                 <span>{strength.number}</span><h3>{strength.title}</h3><p>{strength.body}</p>
-              </motion.article>
+              </article>
             ))}
           </div>
         </section>
 
         <section className="contact section" id="contact">
-          <motion.div className="contact-card" {...enter}>
+          <div className="contact-card">
             <p className="eyebrow">Let’s build something dependable</p>
             <h2>Looking for an engineer who understands both systems and stakes?</h2>
             <p>Open to software, security engineering, automation, and cloud architecture opportunities.</p>
             <div className="contact-actions">
               <a className="button button-primary" href={`mailto:${identity.email}`}>Email Russell</a>
-              <a className="button button-secondary" href={identity.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-              <a className="button button-secondary" href={identity.github} target="_blank" rel="noreferrer">GitHub</a>
+              <a className="button button-secondary" href={identity.linkedin} target="_blank" rel="noreferrer" aria-label="Russell Watson on LinkedIn (opens in a new tab)">LinkedIn</a>
+              <a className="button button-secondary" href={identity.github} target="_blank" rel="noreferrer" aria-label="Russell Watson on GitHub (opens in a new tab)">GitHub</a>
             </div>
-          </motion.div>
+          </div>
         </section>
       </main>
 
