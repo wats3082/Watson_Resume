@@ -66,6 +66,32 @@ Pushes to `main` run [`.github/workflows/deploy-pages.yml`](.github/workflows/de
 workflow installs locked workspace dependencies, lints and builds the portfolio, then publishes the generated
 app with GitHub's official Pages actions at the canonical URL above.
 
+## Roadmap
+
+| Tier | Repo | Step 1 | Step 2 | Step 3 | Status |
+|------|------|--------|--------|--------|--------|
+| TIER 1 - IMMEDIATE (Last 2 weeks) | Portfolio-2025-RW | Archive legacy content | Deprecate old navigation paths | Preserve historical references | pending |
+| TIER 1 - IMMEDIATE (Last 2 weeks) | agentic-emailYourCongressman (CivicDraft) | Enhance AI Prompt | Add Email Templates | Track Response Metrics | pending |
+| TIER 1 - IMMEDIATE (Last 2 weeks) | Watson_Resume | Optimize Performance | Expand Case Studies | Mobile UX Polish | pending |
+| TIER 1 - IMMEDIATE (Last 2 weeks) | Project-Web-Scraper (Pipeline Studio) | Add Authentication | Database Integration | Export Formats | pending |
+| TIER 1 - IMMEDIATE (Last 2 weeks) | Project-Yelp-Clone (Local Lens) | Real Map Integration | Review System | Mobile App | pending |
+| TIER 1 - IMMEDIATE (Last 2 weeks) | System-video-vms-software | Core VMS Engine | Multi-Camera Support | Analytics & Search | pending |
+| TIER 1 - IMMEDIATE (Last 2 weeks) | Project-Database-GUI (Database Workbench) | Query Builder | Multi-Database Support | Performance Profiling | pending |
+| TIER 1 - IMMEDIATE (Last 2 weeks) | System-pacs-security (Sentinel Ops) | Security Audit Trail | Real-time Alerts | Integration APIs | pending |
+| TIER 1 - IMMEDIATE (Last 2 weeks) | Project-Cybersecurity-Quiz (Secure Decisions) | Content Expansion | Leaderboard | Certification Track | pending |
+| TIER 1 - IMMEDIATE (Last 2 weeks) | System-security-kpi (Sentinel KPIs) | Dashboard Customization | Report Generation | Predictive Analytics | pending |
+| TIER 1 - IMMEDIATE (Last 2 weeks) | Project-Photo-TuME (Lumina) | Photo Organization | Editing Tools | Sharing & Collaboration | pending |
+| TIER 2 - SECONDARY (Early August) | Project-API-Platform | API documentation refresh | Rate-limit visibility | Developer onboarding guides | pending |
+| TIER 2 - SECONDARY (Early August) | Project-Cloud-Infra | Infrastructure cost review | Environment hardening | Deployment automation | pending |
+| TIER 2 - SECONDARY (Early August) | Project-Task-Tracker | Workflow prioritization | Bulk actions | Notification tuning | pending |
+| TIER 2 - SECONDARY (Early August) | Project-Customer-Portal | Authentication polish | Self-service settings | Support handoff | pending |
+| TIER 2 - SECONDARY (Early August) | Project-Data-Dashboard | KPI drilldowns | CSV exports | Role-based views | pending |
+| TIER 2 - SECONDARY (Early August) | Project-Mobile-Companion | Offline sync | Push alerts | Simplified onboarding | pending |
+| TIER 2 - SECONDARY (Early August) | Project-AI-Assistant | Prompt library | Conversation memory | Safety controls | pending |
+| TIER 2 - SECONDARY (Early August) | Project-Reporting-Console | Scheduled reports | Chart themes | PDF delivery | pending |
+| TIER 2 - SECONDARY (Early August) | Project-Ops-Hub | Incident timeline | Runbook links | Maintenance planning | pending |
+| TIER 2 - SECONDARY (Early August) | Project-Site-Relaunch | Content migration | SEO cleanup | Accessibility review | pending |
+
 ## Contact
 
 - [LinkedIn](https://www.linkedin.com/in/r-wats3082)
