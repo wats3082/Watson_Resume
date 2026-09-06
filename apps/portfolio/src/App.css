@@ -71,9 +71,10 @@
   align-items: center;
   gap: clamp(32px, 6vw, 80px);
   width: min(1180px, calc(100% - 48px));
-  min-height: 590px;
+  min-height: 100vh;
   margin: auto;
   padding: 112px 0 64px;
+  scroll-snap-align: start;
 }
 
 .hero::after {
@@ -121,9 +122,14 @@
 
 .section {
   width: min(1180px, calc(100% - 48px));
+  min-height: 100vh;
   margin: auto;
   padding: clamp(32px, 4vw, 56px) 0 clamp(64px, 7vw, 92px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   scroll-margin-top: 0;
+  scroll-snap-align: start;
 }
 
 .section-heading { max-width: 720px; margin-bottom: 42px; }

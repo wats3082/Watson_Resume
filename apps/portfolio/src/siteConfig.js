@@ -7,6 +7,32 @@ export const siteConfig = {
     linkedin: 'https://www.linkedin.com/in/r-wats3082',
     github: 'https://github.com/wats3082',
   },
+  about: {
+    eyebrow: 'About',
+    heading: "I didn't start in software. I started where mistakes cost more than a failed deploy.",
+    paragraphs: [
+      "Fifteen years on the front line of asset protection taught me to read risk before it becomes an incident — a habit that now shapes every system I build.",
+      "I've walked properties at 2 a.m. looking for the one door nobody noticed, briefed leadership after things went wrong, and rebuilt processes so they wouldn't go wrong twice. That instinct for finding the overlooked failure point is exactly what makes for solid engineering: question the happy path, plan for the exception, and design for the person who has to use the system under stress.",
+      "That same discipline now shows up in how I write software — as a Security Software Engineer at Amazon and across independent projects in React, TypeScript, Python, and AWS. I still ask the questions I asked on patrol: what's the real threat, who's affected if this fails, and how do we know it's working. The tools changed. The mindset didn't.",
+    ],
+    timeline: [
+      {
+        label: 'Foundation',
+        title: 'Asset protection & field operations',
+        body: 'Access control, incident response, physical security systems, and split-second decisions on live sites.',
+      },
+      {
+        label: 'Expansion',
+        title: 'Security programs at scale',
+        body: 'Enterprise-wide initiatives spanning cloud security, automation, and vulnerability management.',
+      },
+      {
+        label: 'Now',
+        title: 'Software, built the same way',
+        body: 'Applications engineered with the same rigor: threat-aware, tested under pressure, built for real users.',
+      },
+    ],
+  },
   experience: [
     {
       company: 'Amazon',

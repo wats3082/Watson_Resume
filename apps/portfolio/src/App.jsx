@@ -32,7 +32,7 @@ function useScrollReveal() {
 }
 
 function App() {
-  const { identity, experience, projects, strengths } = siteConfig
+  const { identity, about, experience, projects, strengths } = siteConfig
   useScrollReveal()
 
   return (
@@ -77,26 +77,22 @@ function App() {
 
         <section className="story section" id="about">
           <div className="section-heading">
-            <p className="eyebrow">Professional background</p>
-            <h2>From protecting physical operations to engineering the systems behind them.</h2>
+            <p className="eyebrow">{about.eyebrow}</p>
+            <h2>{about.heading}</h2>
           </div>
           <div className="story-grid">
           <article className="story-copy reveal">
-              <p className="lead">My route into software engineering started on the operational side of security.</p>
-              <p>
-                Over 15 years in asset protection, field engineering, security operations, and program delivery
-                taught me to assess risk, investigate failures, coordinate under pressure, and design controls
-                people can actually use. I carried that mindset into software.
-              </p>
-              <p>
-                Today I build with React, TypeScript, Python, AWS, automation, and data systems. The through-line
-                is unchanged: understand the environment, reduce ambiguity, and deliver a system that holds up.
-              </p>
+              <p className="lead">{about.paragraphs[0]}</p>
+              {about.paragraphs.slice(1).map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </article>
             <div className="career-track">
-              <article className="reveal"><span>Foundation</span><h3>Asset protection & field systems</h3><p>Risk assessment, incident response, physical security technology, and frontline operations.</p></article>
-              <article className="reveal" style={{ transitionDelay: '90ms' }}><span>Expansion</span><h3>Program & security engineering</h3><p>Enterprise delivery, cloud security, automation, vulnerability remediation, and analytics.</p></article>
-              <article className="reveal" style={{ transitionDelay: '180ms' }}><span>Now</span><h3>Software systems</h3><p>Human-centered applications shaped by operational constraints and security discipline.</p></article>
+              {about.timeline.map((stage, index) => (
+                <article className="reveal" key={stage.title} style={{ transitionDelay: `${index * 90}ms` }}>
+                  <span>{stage.label}</span><h3>{stage.title}</h3><p>{stage.body}</p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
