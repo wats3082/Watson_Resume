@@ -2,35 +2,23 @@ export const siteConfig = {
   identity: {
     name: 'Russell Watson',
     intro:
-      'I combine 15 years in asset protection and security operations with hands-on software engineering to turn complex, risk-sensitive workflows into clear, resilient products.',
+      'I combine 15 years in asset protection and security operations with hands-on security engineering and consulting to turn complex, risk-sensitive workflows into clear, resilient systems.',
     email: 'russellalanwatson@gmail.com',
     linkedin: 'https://www.linkedin.com/in/r-wats3082',
     github: 'https://github.com/wats3082',
   },
   about: {
     eyebrow: 'About',
-    heading: "I didn't start in software. I started where mistakes cost more than a failed deploy.",
-    paragraphs: [
-      "Fifteen years on the front line of asset protection taught me to read risk before it becomes an incident — a habit that now shapes every system I build.",
-      "I've walked properties at 2 a.m. looking for the one door nobody noticed, briefed leadership after things went wrong, and rebuilt processes so they wouldn't go wrong twice. That instinct for finding the overlooked failure point is exactly what makes for solid engineering: question the happy path, plan for the exception, and design for the person who has to use the system under stress.",
-      "That same discipline now shows up in how I write software — as a Security Software Engineer at Amazon and across independent projects in React, TypeScript, Python, and AWS. I still ask the questions I asked on patrol: what's the real threat, who's affected if this fails, and how do we know it's working. The tools changed. The mindset didn't.",
-    ],
-    timeline: [
-      {
-        label: 'Foundation',
-        title: 'Asset protection & field operations',
-        body: 'Access control, incident response, physical security systems, and split-second decisions on live sites.',
-      },
-      {
-        label: 'Expansion',
-        title: 'Security programs at scale',
-        body: 'Enterprise-wide initiatives spanning cloud security, automation, and vulnerability management.',
-      },
-      {
-        label: 'Now',
-        title: 'Software, built the same way',
-        body: 'Applications engineered with the same rigor: threat-aware, tested under pressure, built for real users.',
-      },
+    heading: 'Security engineer and consultant, built on 15 years of operational risk experience.',
+    list: [
+      '15+ years across asset protection, field security operations, and enterprise program delivery.',
+      'Currently Security Software Engineer at Amazon — CI/CD, identity governance, threat detection, automation.',
+      'Independent security consulting — risk assessments, secure architecture reviews, incident response planning.',
+      'Engineering stack — React, TypeScript, Python, PowerShell, AWS (CDK, IAM, GuardDuty), SQL.',
+      'Security by context — controls designed around real threat models and operator behavior, not checkboxes.',
+      'Architecture with seams — clear boundaries between interface, services, data, and infrastructure.',
+      'Delivery under pressure — incident response and program leadership shape how I prioritize and communicate tradeoffs.',
+      'Open to security engineering and consulting engagements — automation, cloud architecture, secure delivery.',
     ],
   },
   experience: [
@@ -128,23 +116,6 @@ export const siteConfig = {
       stack: ['HTML', 'CSS', 'JavaScript', 'GitHub Pages'],
       demo: 'https://wats3082.github.io/Portfolio-2025-RW/',
       repo: 'https://github.com/wats3082/Portfolio-2025-RW',
-    },
-  ],
-  strengths: [
-    {
-      number: '01',
-      title: 'Security by context',
-      body: 'I start with threat, impact, and operator reality so controls protect the system without fighting the people using it.',
-    },
-    {
-      number: '02',
-      title: 'Architecture with seams',
-      body: 'Clear boundaries between interface, services, data, and infrastructure keep systems testable and ready to evolve.',
-    },
-    {
-      number: '03',
-      title: 'Delivery under pressure',
-      body: 'Incident response and program leadership inform how I prioritize, communicate tradeoffs, and close the loop.',
     },
   ],
 }
