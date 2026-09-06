@@ -1,10 +1,39 @@
+import { useEffect } from 'react'
 import { siteConfig } from './siteConfig'
 import './App.css'
 
 const Arrow = () => <span aria-hidden="true">↗</span>
 
+function useScrollReveal() {
+  useEffect(() => {
+    const targets = document.querySelectorAll('.reveal')
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      targets.forEach((el) => el.classList.add('is-visible'))
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -60px 0px' },
+    )
+
+    targets.forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
+
 function App() {
   const { identity, experience, projects, strengths } = siteConfig
+  useScrollReveal()
 
   return (
     <div className="app-shell">
@@ -52,7 +81,7 @@ function App() {
             <h2>From protecting physical operations to engineering the systems behind them.</h2>
           </div>
           <div className="story-grid">
-            <article className="story-copy">
+          <article className="story-copy reveal">
               <p className="lead">My route into software engineering started on the operational side of security.</p>
               <p>
                 Over 15 years in asset protection, field engineering, security operations, and program delivery
@@ -65,9 +94,9 @@ function App() {
               </p>
             </article>
             <div className="career-track">
-              <article><span>Foundation</span><h3>Asset protection & field systems</h3><p>Risk assessment, incident response, physical security technology, and frontline operations.</p></article>
-              <article><span>Expansion</span><h3>Program & security engineering</h3><p>Enterprise delivery, cloud security, automation, vulnerability remediation, and analytics.</p></article>
-              <article><span>Now</span><h3>Software systems</h3><p>Human-centered applications shaped by operational constraints and security discipline.</p></article>
+              <article className="reveal"><span>Foundation</span><h3>Asset protection & field systems</h3><p>Risk assessment, incident response, physical security technology, and frontline operations.</p></article>
+              <article className="reveal" style={{ transitionDelay: '90ms' }}><span>Expansion</span><h3>Program & security engineering</h3><p>Enterprise delivery, cloud security, automation, vulnerability remediation, and analytics.</p></article>
+              <article className="reveal" style={{ transitionDelay: '180ms' }}><span>Now</span><h3>Software systems</h3><p>Human-centered applications shaped by operational constraints and security discipline.</p></article>
             </div>
           </div>
         </section>
@@ -78,7 +107,7 @@ function App() {
             <h2>Security engineering grounded in operational delivery.</h2>
           </div>
           {experience.map((job) => (
-            <article className="experience-card" key={`${job.company}-${job.role}`}>
+            <article className="experience-card reveal" key={`${job.company}-${job.role}`}>
               <div>
                 <p className="experience-period">{job.period}</p>
                 <h3>{job.role}</h3>
@@ -96,7 +125,11 @@ function App() {
           </div>
           <div className="project-grid">
             {projects.map((project, index) => (
-              <article className="project-card" key={project.name}>
+              <article
+                className="project-card reveal"
+                key={project.name}
+                style={{ transitionDelay: `${(index % 3) * 90}ms` }}
+              >
                 <div className="project-topline">
                   <span className="project-number">{String(index + 1).padStart(2, '0')}</span>
                   <span className="live-badge"><i /> Live</span>
@@ -122,8 +155,8 @@ function App() {
             <h2>Operational judgment is part of the technical stack.</h2>
           </div>
           <div className="strength-grid">
-            {strengths.map((strength) => (
-              <article key={strength.title}>
+            {strengths.map((strength, index) => (
+              <article className="reveal" key={strength.title} style={{ transitionDelay: `${index * 90}ms` }}>
                 <span>{strength.number}</span><h3>{strength.title}</h3><p>{strength.body}</p>
               </article>
             ))}
@@ -131,7 +164,7 @@ function App() {
         </section>
 
         <section className="contact section" id="contact">
-          <div className="contact-card">
+          <div className="contact-card reveal">
             <p className="eyebrow">Let’s build something dependable</p>
             <h2>Looking for an engineer who understands both systems and stakes?</h2>
             <p>Open to software, security engineering, automation, and cloud architecture opportunities.</p>
