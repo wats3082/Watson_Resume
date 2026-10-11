@@ -142,6 +142,16 @@ function App() {
                       {project.highlights.map((h) => <li key={h}>{h}</li>)}
                     </ul>
                   )}
+                  {project.caseStudy && (
+                    <details className="case-study">
+                      <summary>Case study</summary>
+                      <dl>
+                        <dt>Problem</dt><dd>{project.caseStudy.problem}</dd>
+                        <dt>Approach</dt><dd>{project.caseStudy.approach}</dd>
+                        <dt>Outcome</dt><dd>{project.caseStudy.outcome}</dd>
+                      </dl>
+                    </details>
+                  )}
                   <ul className="stack" aria-label={`${project.name} technologies`}>
                     {project.stack.map((item) => <li key={item}>{item}</li>)}
                   </ul>

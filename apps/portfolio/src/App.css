@@ -311,3 +311,15 @@ footer { display: flex; justify-content: space-between; gap: 30px; width: min(11
 .highlights { margin: 10px 0 0; padding-left: 16px; color: #cfe0dc; font-size: 0.74rem; line-height: 1.5; }
 .highlights li::marker { color: var(--teal); }
 
+
+.case-study { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 8px; }
+.case-study summary { cursor: pointer; color: var(--teal); font-size: 0.72rem; font-weight: 750; list-style: none; }
+.case-study summary::-webkit-details-marker { display: none; }
+.case-study summary::before { content: '+'; display: inline-block; width: 14px; transition: transform 200ms ease; }
+.case-study[open] summary::before { content: '−'; }
+.case-study dl { margin: 8px 0 0; font-size: 0.74rem; line-height: 1.5; animation: fadeIn 240ms ease; }
+.case-study dt { margin-top: 6px; color: var(--amber); font-size: 0.62rem; font-weight: 750; letter-spacing: 0.1em; text-transform: uppercase; }
+.case-study dd { margin: 2px 0 0; color: #cfe0dc; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .case-study dl { animation: none; } }
+

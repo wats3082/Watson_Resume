@@ -38,6 +38,7 @@ export const siteConfig = {
   projects: [
     {
       name: 'Sentinel Ops',
+      caseStudy: { problem: 'Access decisions, investigations, device health, and video metadata live in separate tools, which slows triage.', approach: 'Simulate the full workflow in one browser console and back it with a deployable AWS CDK and DynamoDB architecture.', outcome: 'A single place to see decisions, evidence, and KPIs, with an architecture that can be deployed as designed.' },
       category: 'Security',
       featured: true,
       highlights: ['Models access decisions, investigations, and device health end to end','Deployable AWS CDK + DynamoDB reference architecture','Operational KPIs tie alerts to measurable outcomes'],
@@ -50,6 +51,7 @@ export const siteConfig = {
     },
     {
       name: 'Sentinel KPIs',
+      caseStudy: { problem: 'Raw control measurements are hard to compare, so it is unclear which gaps matter most.', approach: 'Normalize measurements into a posture score, track trends over time, and rank findings in a remediation queue.', outcome: 'Leaders see posture at a glance and teams know what to fix first.' },
       category: 'Security',
       featured: true,
       highlights: ['Normalizes control measurements into one posture score','Trend views show whether posture is improving','Prioritized remediation queue ranks what to fix first'],
@@ -122,6 +124,7 @@ export const siteConfig = {
     },
     {
       name: 'Secure Decisions',
+      caseStudy: { problem: 'Security awareness training is often passive and does not show people why an answer is wrong.', approach: 'Use realistic scenarios with immediate explanations, remediation guidance, and local-only progress tracking.', outcome: 'Learners get practice with feedback, and category analytics show where to focus next.' },
       category: 'Security',
       featured: true,
       highlights: ['Scenario-based defensive training with instant explanations','Remediation guidance for every wrong answer','Category analytics expose weak areas over time'],
