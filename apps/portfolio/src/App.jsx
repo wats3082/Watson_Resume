@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { siteConfig } from './siteConfig'
 import './App.css'
 
@@ -34,6 +34,14 @@ function useScrollReveal() {
 function App() {
   const { identity, about, experience, projects } = siteConfig
   useScrollReveal()
+  const [filter, setFilter] = useState('All')
+  const filters = ['All', 'Security', 'Apps & Data']
+  const visibleProjects = useMemo(
+    () => projects
+      .filter((p) => filter === 'All' || p.category === filter)
+      .sort((a, b) => Number(b.featured) - Number(a.featured)),
+    [projects, filter],
+  )
 
   return (
     <div className="app-shell">
@@ -109,20 +117,31 @@ function App() {
               <p className="eyebrow">Portfolio</p>
               <h2>Deployed systems built around concrete problems.</h2>
             </div>
+            <div className="filter-chips" role="group" aria-label="Filter projects">
+              {filters.map((f) => (
+                <button key={f} type="button" className={`chip${filter === f ? ' is-active' : ''}`} aria-pressed={filter === f} onClick={() => setFilter(f)}>{f}</button>
+              ))}
+            </div>
             <div className="panel-scroll project-list">
-              {projects.map((project, index) => (
+              {visibleProjects.map((project, index) => (
                 <article
-                  className="project-row reveal"
+                  className={`project-row reveal${project.featured ? ' is-featured' : ''}`}
                   key={project.name}
                   style={{ transitionDelay: `${(index % 4) * 70}ms` }}
                 >
                   <div className="project-row-top">
                     <span className="project-number">{String(index + 1).padStart(2, '0')}</span>
                     <p className="project-type">{project.type}</p>
+                    {project.featured && <span className="featured-badge">★ Featured</span>}
                     <span className="live-badge"><i /> Live</span>
                   </div>
                   <h3>{project.name}</h3>
                   <p className="project-summary">{project.summary}</p>
+                  {project.highlights.length > 0 && (
+                    <ul className="highlights">
+                      {project.highlights.map((h) => <li key={h}>{h}</li>)}
+                    </ul>
+                  )}
                   <ul className="stack" aria-label={`${project.name} technologies`}>
                     {project.stack.map((item) => <li key={item}>{item}</li>)}
                   </ul>

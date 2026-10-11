@@ -300,3 +300,14 @@ footer { display: flex; justify-content: space-between; gap: 30px; width: min(11
     transition: none;
   }
 }
+
+.filter-chips { display: flex; gap: 8px; margin: 0 0 12px; }
+.chip { padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; background: transparent; color: #bfd0cc; font: inherit; font-size: 0.7rem; font-weight: 650; cursor: pointer; transition: background 180ms ease, color 180ms ease, border-color 180ms ease; }
+.chip:hover { border-color: rgba(94, 234, 212, 0.5); color: #fff; }
+.chip.is-active { background: rgba(94, 234, 212, 0.14); border-color: var(--teal); color: var(--teal); }
+.chip:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+.project-row.is-featured { border-color: rgba(245, 183, 64, 0.4); }
+.featured-badge { color: var(--amber); font-size: 0.64rem; font-weight: 750; letter-spacing: 0.06em; }
+.highlights { margin: 10px 0 0; padding-left: 16px; color: #cfe0dc; font-size: 0.74rem; line-height: 1.5; }
+.highlights li::marker { color: var(--teal); }
+

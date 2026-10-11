@@ -38,6 +38,9 @@ export const siteConfig = {
   projects: [
     {
       name: 'Sentinel Ops',
+      category: 'Security',
+      featured: true,
+      highlights: ['Models access decisions, investigations, and device health end to end','Deployable AWS CDK + DynamoDB reference architecture','Operational KPIs tie alerts to measurable outcomes'],
       type: 'Security operations platform',
       summary:
         'A browser simulation of access decisions, investigations, device health, video metadata, and operational KPIs, backed by a deployable AWS architecture.',
@@ -47,6 +50,9 @@ export const siteConfig = {
     },
     {
       name: 'Sentinel KPIs',
+      category: 'Security',
+      featured: true,
+      highlights: ['Normalizes control measurements into one posture score','Trend views show whether posture is improving','Prioritized remediation queue ranks what to fix first'],
       type: 'Security analytics',
       summary:
         'A security dashboard that normalizes operational control measurements into posture scoring, trends, and a prioritized remediation queue.',
@@ -56,6 +62,9 @@ export const siteConfig = {
     },
     {
       name: 'Pipeline Studio',
+      category: 'Apps & Data',
+      featured: false,
+      highlights: [],
       type: 'Data engineering',
       summary:
         'A safe browser simulation for a configurable web-scraping pipeline with bounded collection, provenance, and JSONL or CSV export.',
@@ -65,6 +74,9 @@ export const siteConfig = {
     },
     {
       name: 'Local Lens',
+      category: 'Apps & Data',
+      featured: false,
+      highlights: [],
       type: 'Local discovery',
       summary:
         'A local-first Phoenix business discovery product with multidimensional search, profiles, validated reviews, and browser persistence.',
@@ -74,6 +86,9 @@ export const siteConfig = {
     },
     {
       name: 'Lumina',
+      category: 'Apps & Data',
+      featured: false,
+      highlights: [],
       type: 'Private photo library',
       summary:
         'A local-first photo library for importing, searching, favoriting, tagging, and organizing images without uploading them.',
@@ -83,6 +98,9 @@ export const siteConfig = {
     },
     {
       name: 'Database Workbench',
+      category: 'Apps & Data',
+      featured: false,
+      highlights: [],
       type: 'Safe data operations',
       summary:
         'An explicitly sandboxed browser companion to a SQLite desktop tool, demonstrating validated CRUD, schema inspection, and safe queries.',
@@ -92,6 +110,9 @@ export const siteConfig = {
     },
     {
       name: 'CivicDraft',
+      category: 'Apps & Data',
+      featured: false,
+      highlights: [],
       type: 'Privacy-aware civic tech',
       summary:
         'A transparent workflow that helps constituents verify a federal representative and create an editable, deterministic message draft.',
@@ -101,6 +122,9 @@ export const siteConfig = {
     },
     {
       name: 'Secure Decisions',
+      category: 'Security',
+      featured: true,
+      highlights: ['Scenario-based defensive training with instant explanations','Remediation guidance for every wrong answer','Category analytics expose weak areas over time'],
       type: 'Cybersecurity learning',
       summary:
         'Scenario-based defensive practice with immediate explanations, remediation guidance, local progress, and category analytics.',
@@ -110,6 +134,9 @@ export const siteConfig = {
     },
     {
       name: 'Portfolio 2025',
+      category: 'Apps & Data',
+      featured: false,
+      highlights: [],
       type: 'Previous portfolio · Live archive',
       summary:
         'The previous static portfolio, retained as a live snapshot of earlier security architecture, cloud, and automation work.',
